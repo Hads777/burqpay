@@ -1,0 +1,20 @@
+account id,account code,account name,account parent
+12,1000,Assets,-
+12,1002,Current Assets,assets
+12,2011,liability,-
+12,1012,Accounts Receivable,Assets
+12,3015,equity,-
+12,1014,Interest Receivable,Assets
+12,1015,Loan Principal Receivable,Assets
+12,4016,revenue,-
+12,1020,Fixed Assets,Assets
+12,1111,Liabilities,Assets
+12,5010,expense,-
+12,5011,Accounts Payable,expense
+12,1018,Short-term Loans,Assets
+12,1222,Long-term Liabilities,Assets
+12,1021,Borrowed Funds,assets
+12,1023,Loan Payable,Assets
+12,1024,Equity,Assets
+12,1025,Owner's Equity,Assets
+12,1026,asset,Assets

@@ -1,0 +1,35 @@
+export interface ApisState {
+  isError: boolean;
+  isSuccess: boolean;
+  isLoading: boolean;
+  message: string;
+  theme: any;
+  dashboardStructure: any;
+  compilanceDashboard: any;
+  actionBoard: any;
+  notificationStructure: any;
+  toggled: boolean;
+  closeSidebar: boolean;
+  openSidebar: boolean;
+  subscribeData: any;
+  product: boolean;
+  business: boolean;
+  payment: boolean;
+  password: boolean;
+  individualCustomer: any;
+  prodId: any;
+  payInvoices: any;
+  cities: any;
+  countries: any;
+  languages: any;
+  relations: any;
+  states: any;
+  fromFilter: any;
+  toFilter: any;
+  token: any;
+  refreshToken: any;
+  permissions: any;
+  flightDetails: any;
+  packageDetails: any;
+  ecommerceDetails: any;
+}
