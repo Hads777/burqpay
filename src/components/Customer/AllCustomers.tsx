@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button, Dropdown, Menu, Select, Tabs, Modal, Input, Form } from "antd";
 import TableView from "../TableView/TableView";
 import { FaFilter } from "react-icons/fa";
 import { Images } from "../Config/Images";
-import {
-  allCustomerStatusChange,
-  customersList,
-} from "../../redux/apis/apisCrud";
+// import {
+//   allCustomerStatusChange,
+//   customersList,
+// } from "../../redux/apis/apisCrud";
 import toast from "react-hot-toast";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import arrowDown from "../../assets/images/arrow-down.png";
@@ -21,7 +21,7 @@ import { RootState } from "../../redux/rootReducer";
 
 const AllCustomers = () => {
   const [skelitonLoading, setSkelitonLoading] = useState(false);
-  const [data, setData] = useState<any>();
+  const [tableData, setTableData] = useState<any[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [totalRows, setTotalRows] = useState(0);
@@ -61,36 +61,21 @@ const AllCustomers = () => {
     setShowDetailsFields(false); // Reset the fields visibility
   };
 
-  const handleStatusChange = async (value: any) => {
-    setStatus(value);
-
-    try {
-      const body = {
-        _method: "put",
-        status: value?.accountStatus,
-      };
-      await toast.promise(
-        allCustomerStatusChange(body,value.id), // The promise to track
-        {
-          loading: "Changing Status...", // Loading state message
-          success: (res) => {
-            if (res?.data?.success) {
-              setIsModalVisible(false);
-              getList();
-              return res?.data?.message;
-            } else if (res?.data?.errors) {
-              throw new Error(res.data.errors[0]); // Force error handling
+  const handleStatusChange = (row: any) => {
+    // Update status locally in dummy data instead of calling API
+    setTableData((prev) =>
+      prev.map((item, index) =>
+        index + 1 === row.user_id
+          ? {
+              ...item,
+              accountStatus: row.accountStatus,
             }
-          },
-          error: (err) => {
-            console.error("Error occurred:", err);
-            return err?.message || "Something went wrong!";
-          },
-        }
-      );
-    } catch (error: any) {
-      console.error("Error during login:", error);
-    }
+          : item
+      )
+    );
+    setIsModalVisible(false);
+    setShowDetailsFields(false);
+    toast.success("Status updated (dummy data)");
   };
 
   const toggleDetailsFields = () => {
@@ -262,34 +247,19 @@ const AllCustomers = () => {
       ),
     },
   ];
-  const getList = async () => {
-    try {
-      setSkelitonLoading(true);
+  // Initialize table data with dummy records (no API call)
+  useState(() => {
+    setTableData(dummyUserMapped as any[]);
+    setTotalRows(dummyUserMapped.length);
+    setFrom(1);
+    setTo(dummyUserMapped.length);
+    setTotalPage(1);
+    return dummyUserMapped;
+  });
 
-      const response = await customersList(page, pageSize,"s");
-      if (response) {
-        const data = response?.data?.data;
-        setData(data || []);
-        setSkelitonLoading(false);
-        setTotalRows(response?.data?.total || 0);
-        setFrom(response?.data?.from || 0);
-        setTo(response?.data?.to || 0);
-        setPage(response?.data?.current_page);
-        setTotalPage(response?.data?.last_page);
-      }
-    } catch (error: any) {
-      toast.error(error?.message);
-      setSkelitonLoading(false);
-    } finally {
-      setSkelitonLoading(false);
-    }
-  };
-  useEffect(() => {
-    getList();
-  }, [page, pageSize]);
   const mappedData =
-    data &&
-    data?.map((item: any,index:any) => {
+    tableData &&
+    tableData?.map((item: any,index:any) => {
       return {
         id:item.id,
         user_id:index+1,
