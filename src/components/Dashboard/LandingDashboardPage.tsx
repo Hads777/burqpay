@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import icon1 from "../../assets/images/icon-1.png";
+import icon2 from "../../assets/images/icon-2.png";
+import icon3 from "../../assets/images/icon-3.png";
+import { Images } from "../Config/Images";
+
 
 const LandingDashboardPage: React.FC = () => {
   const [notificationTab, setNotificationTab] = useState<"all" | "new">("all");
@@ -52,9 +57,9 @@ const LandingDashboardPage: React.FC = () => {
       <div className="bp-overview-grid">
         {/* Collection Balance */}
         <div className="bp-overview-card">
-          <div className="bp-overview-card-header bp-overview-card-header--collection">
+          <div className="bp-overview-card-header bp-overview-card-header--collection" style={{height:"63px"}}>
             <span className="bp-overview-title">Collection Balance</span>
-            <span className="bp-overview-icon">🏬</span>
+            <span className="bp-overview-icon"><img src={Images.icon1} alt="" /></span>
           </div>
           <div className="bp-overview-card-body">
             <div className="bp-overview-value">SAR 201</div>
@@ -63,9 +68,9 @@ const LandingDashboardPage: React.FC = () => {
 
         {/* Collection to Wallet */}
         <div className="bp-overview-card">
-          <div className="bp-overview-card-header bp-overview-card-header--wallet">
+          <div className="bp-overview-card-header bp-overview-card-header--wallet" style={{height:"63px"}}>
             <span className="bp-overview-title">Collection to Wallet</span>
-            <span className="bp-overview-icon">💳</span>
+              <span className="bp-overview-icon"><img src={Images.icon2} alt="" /></span>
           </div>
           <div className="bp-overview-card-body">
             <div className="d-flex justify-content-start gap-5 bp-overview-meta-row">
@@ -83,10 +88,12 @@ const LandingDashboardPage: React.FC = () => {
 
         {/* Invoices */}
         <div className="bp-overview-card">
-          <div className="bp-overview-card-header bp-overview-card-header--invoices">
-            <span className="bp-overview-title">Invoices</span>
-            <span className="bp-overview-count">3</span>
-            <span className="bp-overview-icon">📄</span>
+          <div className="bp-overview-card-header bp-overview-card-header--invoices" style={{height:"63px"}}>
+            <span className="bp-overview-title">Invoices
+              <span className="bp-overview-count" style={{display:"block",marginTop:"5px"}}>3</span>
+            </span>
+            
+             <span className="bp-overview-icon"><img src={Images.icon3} alt="" /></span>
           </div>
           <div className="bp-overview-card-body">
             <div className="bp-overview-meta-grid">

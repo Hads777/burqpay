@@ -156,9 +156,7 @@ export const router = createBrowserRouter([
           {
             path: "Customers/AllCustomers",
             element: (
-              <ModulePermissionRoute requiredModule="customer_module">
                 <AllCustomers />
-              </ModulePermissionRoute>
             ),
           },
           { path: "Packages/AllPackages", element: <Packages /> },

@@ -38,7 +38,7 @@ const DasbhboardSidebar = () => {
 
   const sidebarItems: any = [
     hasAccess("dashboard_module") && {
-      label: "Dashboard",
+      label: "Collection Dashboard",
       Link: "Dashboard",
       img: Images.dashboardIcon,
       active: pathname.split("/").includes("Dashboard"),
@@ -82,27 +82,6 @@ const DasbhboardSidebar = () => {
           LinkLabel: "Customers",
           img: Images.accountIcon,
           active: pathname == "/Customers/AllCustomers",
-        },
-        {
-          label: "Citizens",
-          Link: "Citizens",
-          LinkLabel: "Customers",
-          img: Images.accountIcon,
-          active: pathname == "/Customers/Citizens",
-        },
-        {
-          label: "Residents",
-          Link: "Residents",
-          LinkLabel: "Customers",
-          img: Images.accountIcon,
-          active: pathname == "/Customers/Residents",
-        },
-        {
-          label: "Visitors",
-          Link: "Visitors",
-          LinkLabel: "Customers",
-          img: Images.accountIcon,
-          active: pathname == "/Customers/Visitors",
         },
         // {
         //   label: "Complaints",

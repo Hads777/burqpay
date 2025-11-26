@@ -111,7 +111,13 @@ import giftIcon from "../../assets/images/giftIcon.svg";
 import edit from "../../assets/images/material-symbols_edit-outline.svg";
 import cross from "../../assets/images/material-symbols_close.svg";
 import BarIconClose from "../../assets/images/barCloseIcon.svg";
+import icon1 from "../../assets/images/icon-1.png";
+import icon2 from "../../assets/images/icon-2.png";
+import icon3 from "../../assets/images/icon-3.png";
 export const Images = {
+  icon1,
+  icon2,
+  icon3,
   mabrourSignup,
   BarIconClose,
   hotelIcon,
