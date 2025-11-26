@@ -4721,7 +4721,7 @@ button.invoice-btn.mid-button {
 }
 
 :where(.css-dev-only-do-not-override-ni1kz0).ant-switch.ant-switch-checked {
-  background: #0b8644 !important;
+  background: #309898 !important;
 }
 
 :where(.css-dev-only-do-not-override-ni1kz0).ant-switch .ant-switch-handle::before {

@@ -19,7 +19,21 @@ body {
   opacity: 0.7;
   z-index: 1020;
 }
-
+body .flex.colTwo .custom-Colorr ,body .flex.colTwo .new-Bttn  ,body .flex.colTwo .new-White {
+   background-color: #C91E14 !important;
+            border-radius: 6px;
+            padding: 8px 24px;
+            color: #fff !important;
+            height: 48px;
+}
+body .flex.colTwo .new-Bttn {
+     background-color: #999797 !important;
+}
+body .flex.colTwo .new-White {
+ border: 1px solid #ccc;
+ background-color: #fff !important;
+ color: #000 !important;
+}
 .loader-container {
   display: flex;
   align-items: center;
@@ -4766,7 +4780,7 @@ button.invoice-btn.mid-button {
   height: 15px !important;
 }
 :where(.css-dev-only-do-not-override-ni1kz0).ant-switch.ant-switch-checked {
-  background: #0b8644 !important;
+  background: #309898 !important;
 }
 :where(.css-dev-only-do-not-override-ni1kz0).ant-switch
   .ant-switch-handle::before {
@@ -5237,7 +5251,7 @@ span.asc.__rdt_custom_sort_icon__ img {
   top: 2px !important;
 }
 :where(.css-ni1kz0).ant-switch.ant-switch-checked{
-  background: #0b8644 !important;
+  background: #309898 !important;
 }
 .my-text {
   border-bottom: 2px solid #6C727F;

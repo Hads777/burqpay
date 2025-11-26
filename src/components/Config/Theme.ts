@@ -7,7 +7,7 @@ export const themeStyle = {
   activeTab: "transparent",
   inaActiveTab: "transparent",
   breadCrumActiveTextColor: "#EB0D0D",
-  gradientBackgroundColor: "#16578B",
+  gradientBackgroundColor: "#000",
   sideBarmenuBackgroundColor: "#F6F6F6",
   sidebarTextColor: "black",
   revertActionColor: "#A0A0A0",

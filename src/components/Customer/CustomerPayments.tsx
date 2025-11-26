@@ -28,7 +28,7 @@ import Loader from "../Loader/Loader";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
 
-const AllCustomers = () => {
+const CustomerPayments = () => {
   const [skelitonLoading, setSkelitonLoading] = useState(false);
   const [tableData, setTableData] = useState<any[]>([]);
   const [page, setPage] = useState(1);
@@ -65,9 +65,6 @@ const AllCustomers = () => {
     if (key === "edit") {
       navigate(`/Customers/AllCustomers/Edit/${data.id || data.user_id}`);
     }
-    if (key === "details") {
-      navigate(`/Customers/AllCustomers/Details/${data.id || data.user_id}`);
-    }
   };
 
   const menu = (row: any) => {
@@ -79,13 +76,6 @@ const AllCustomers = () => {
           onClick={() => handleMenuClick("edit", row)}
         >
           Edit
-        </Menu.Item>
-        <Menu.Item
-          key="details"
-          icon={<i className="bi bi-info-circle" />}
-          onClick={() => handleMenuClick("details", row)}
-        >
-          Details
         </Menu.Item>
       </Menu>
     );
@@ -231,79 +221,8 @@ const AllCustomers = () => {
   console.log(rowData, "rowData");
   return (
     <div className="service customer-list-page">
-      {skelitonLoading && <Loader />}
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h4 className="mb-0 fw-bold"></h4>
-        <Button
-          type="primary"
-          style={{
-            backgroundColor: "#C91E14",
-            borderColor: "#C91E14",
-            borderRadius: "6px",
-            padding: "8px 24px",
-          }}
-          onClick={() => navigate("/Customers/AllCustomers/Create")}
-        >
-          Add Customer
-        </Button>
-      </div>
+      
 
-      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-        <div className="flex-grow-1 me-3">
-          <div className="d-flex align-items-center gap-2 border px-3 search-box w-100">
-            <img src={Images.searchIconGray} alt="" />
-            <input
-              type="text"
-              style={{
-                border: "none",
-                outline: "none",
-                background: "transparent",
-              }}
-              className="p-2 w-100"
-              placeholder="Search..."
-            />
-          </div>
-        </div>
-
-        <div className="d-flex align-items-center gap-2">
-          <DatePicker placeholder="From" />
-          <DatePicker placeholder="To" />
-          <Select
-            placeholder="Filters"
-            style={{ minWidth: 130 }}
-            suffixIcon={<FaFilter />}
-          />
-        </div>
-      </div>
-
-      <Modal
-        className="custom-mod"
-        title=""
-        visible={isModalVisible}
-        onCancel={handleCancel}
-        footer={[
-          <Button key="close" onClick={handleCancel}>
-            Close
-          </Button>,
-        ]}
-      >
-        <div className={selectedItem === "edit" ? "cust-drop" : "Ente-details"}>
-          <Form>
-            <Form.Item name="username">
-              <div className="custom-input-container">
-                <label className="input-label">Username</label>
-                <Input placeholder="Enter your username" />
-              </div>
-            </Form.Item>
-            <Form.Item name="password">
-              <div className="custom-input-container">
-                <label className="input-label">Password</label>
-                <Input.Password placeholder="Enter your password" />
-              </div>
-            </Form.Item>
-          </Form>
-        </div>
-      </Modal>
       <TableView
         header={Activity_Loans_Header}
         data={mappedData}
@@ -322,4 +241,4 @@ const AllCustomers = () => {
   );
 };
 
-export default AllCustomers;
+export default CustomerPayments;

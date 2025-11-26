@@ -4596,7 +4596,7 @@ ul.css-ewdv3l .menu-items.css-12w9als .ps-submenu-content ul {
 
 button.invoice-btn.mid-button {
   width: 64px;
-  background: #16578b !important;
+  background: #309898 !important;
   color: #fff !important;
   border: 0px solid #fff !important;
 }
@@ -4721,7 +4721,7 @@ button.invoice-btn.mid-button {
 }
 
 :where(.css-dev-only-do-not-override-ni1kz0).ant-switch.ant-switch-checked {
-  background: #0b8644 !important;
+  background: #309898 !important;
 }
 
 :where(.css-dev-only-do-not-override-ni1kz0).ant-switch .ant-switch-handle::before {

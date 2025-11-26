@@ -82,7 +82,8 @@ import SpendingReports from "../components/Reports/SpendingReports";
 import PackagesList from "../components/Transactions/PackagesList";
 import Vendors from "../components/Transactions/Vendors";
 import CampaignSystem from "../components/System/CampaignSystem";
-
+import CustomerForm from "../components/Customer/CustomerForm";
+import CustomerInfo from "../components/Customer/CustomerInfo";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -158,6 +159,18 @@ export const router = createBrowserRouter([
             element: (
                 <AllCustomers />
             ),
+          },
+          {
+            path: "Customers/AllCustomers/Create",
+            element: <CustomerForm />,
+          },
+          {
+            path: "Customers/AllCustomers/Edit/:id",
+            element: <CustomerForm />,
+          },
+          {
+            path: "Customers/AllCustomers/Details/:id",
+            element: <CustomerInfo />,
           },
           { path: "Packages/AllPackages", element: <Packages /> },
           { path: "Packages/AddNewPackage", element: <NewPackages /> },
