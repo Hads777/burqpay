@@ -1,109 +1,86 @@
-import React from "react";
-import { Table, Tag } from "antd";
+import React, { useState } from "react";
+import TableView from "../TableView/TableView";
 
 export default function CustomerInvoices() {
-  const columns = [
+  const [skelitonLoading, setSkelitonLoading] = useState(false);
+  const [tableData, setTableData] = useState<any[]>([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [totalRows, setTotalRows] = useState(0);
+  const [from, setFrom] = useState(0);
+  const [to, setTo] = useState(0);
+  const [totalPage, setTotalPage] = useState(0);
+
+  const dummyData = [
+    { id: 1, amount: "SAR.51", createdDate: "10/08/2025", status: "Paid" },
+    { id: 2, amount: "SAR.50", createdDate: "10/08/2025", status: "Paid" },
+    { id: 3, amount: "SAR.51", createdDate: "10/08/2025", status: "Paid" },
+    { id: 4, amount: "SAR.50", createdDate: "10/08/2025", status: "Paid" },
+  ];
+
+  const CustomerInvoices_Header = [
     {
-      title: (
-        <div style={{ fontWeight: 600 }}>Amount</div>
-      ),
-      dataIndex: "amount",
-      key: "amount",
+      name: "Amount",
+      selector: (row: { amount: any }) => row.amount,
+      sortable: true,
     },
     {
-      title: (
-        <div style={{ fontWeight: 600, textAlign: "center" }}>
-          Created Date
-        </div>
-      ),
-      dataIndex: "createdDate",
-      key: "createdDate",
-      align: "center",
+      name: "Created Date",
+      selector: (row: { createdDate: any }) => row.createdDate,
+      sortable: true,
     },
     {
-      title: (
-        <div style={{ fontWeight: 600, textAlign: "right" }}>
-          Status
-        </div>
-      ),
-      key: "status",
-      align: "right",
-      render: () => (
-        <Tag
-          color="#06C167"
+      name: "Status",
+      cell: (row: any) => (
+        <div
           style={{
-            padding: "4px 14px",
-            borderRadius: "20px",
-            color: "#fff",
-            fontWeight: 500,
-            fontSize: 14,
+            padding: "0.22rem 1rem",
+            borderRadius: "12px",
+            backgroundColor: "#06C167",
+            color: "#ffffff",
+            cursor: "pointer",
           }}
         >
-          Status
-        </Tag>
+          {row.status || "Paid"}
+        </div>
       ),
     },
   ];
 
-  const data = [
-    { key: 1, amount: "SAR.51", createdDate: "10/08/2025" },
-    { key: 2, amount: "SAR.50", createdDate: "10/08/2025" },
-    { key: 3, amount: "SAR.51", createdDate: "10/08/2025" },
-    { key: 4, amount: "SAR.50", createdDate: "10/08/2025" },
-  ];
+  // Initialize table data with dummy records
+  React.useEffect(() => {
+    setTableData(dummyData);
+    setTotalRows(dummyData.length);
+    setFrom(1);
+    setTo(dummyData.length);
+    setTotalPage(1);
+  }, []);
+
+  const mappedData =
+    tableData &&
+    tableData?.map((item: any) => {
+      return {
+        id: item.id,
+        amount: item?.amount || "--------",
+        createdDate: item?.createdDate || "--------",
+        status: item?.status || "Paid",
+      };
+    });
 
   return (
-    <div>
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-        bordered={false}
-        rowClassName={(record, index) =>
-          index % 2 === 1 ? "striped-row" : ""
-        }
-        style={{
-          borderRadius: 10,
-          overflow: "hidden",
-        }}
-        // Inline row styling (alternating)
-        rowClassName={(record, index) =>
-          index % 2 === 1 ? "custom-row" : "default-row"
-        }
-        onRow={(record, index) => ({
-          style: {
-            background:
-              index % 2 === 1 ? "#fafbff" : "#ffffff",
-          },
-        })}
-        // Inline header style
-        components={{
-          header: {
-            cell: (props) => (
-              <th
-                {...props}
-                style={{
-                  background: "#e9fdf9",
-                  fontWeight: 600,
-                  fontSize: 14,
-                  border: "none",
-                }}
-              />
-            ),
-          },
-          body: {
-            cell: (props) => (
-              <td
-                {...props}
-                style={{
-                  border: "none",
-                  fontSize: 14,
-                  padding: "14px 16px",
-                }}
-              />
-            ),
-          },
-        }}
+    <div className="service customer-list-page">
+      <TableView
+        header={CustomerInvoices_Header}
+        data={mappedData}
+        totalRows={totalRows}
+        isLoading={skelitonLoading}
+        from={from}
+        page={page}
+        totalPage={totalPage}
+        setPage={setPage}
+        pageSize={pageSize}
+        setPageSize={setPageSize}
+        to={to}
       />
     </div>
   );

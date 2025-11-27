@@ -35,7 +35,9 @@ const TableView = ({
   skelitonLength,
   from,
   to,
-  pagination=true
+  pagination=true,
+  headerFontSize = "15px",
+  cellFontSize = "14px"
   
 }: any) => {
   const [table, setTable] = useState<any>();
@@ -56,7 +58,7 @@ const TableView = ({
         alignItems: "center",
         background: themeStyle?.table.backgroundColor,
         color: themeStyle?.table.headingColor,
-        fontSize: "16px",
+        fontSize: headerFontSize,
         fontWeight: "600",
       },
     },
@@ -64,7 +66,7 @@ const TableView = ({
       style: {
         paddingLeft: "0px",
         paddingRight: "8px",
-        fontSize: "15px",
+        fontSize: cellFontSize,
         color: themeStyle?.table.bodyTextColor,
         borderTopLeftRadius: "10px",
         justifyContent: "start",
