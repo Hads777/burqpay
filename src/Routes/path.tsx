@@ -85,6 +85,8 @@ import CampaignSystem from "../components/System/CampaignSystem";
 import CustomerForm from "../components/Customer/CustomerForm";
 import CustomerInfo from "../components/Customer/CustomerInfo";
 import Management from "../components/Management/Management";
+import AllInvoices from "../components/Invoices/AllInvoices";
+import CreateInvoice from "../components/Invoices/CreateInvoice";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -161,6 +163,14 @@ export const router = createBrowserRouter([
                 <AllCustomers />
             ),
           },
+          {
+            path: "Invoices/AllInvoices",
+            element: <AllInvoices/>,
+          },
+          {
+            path: "Invoices/CreateInvoice",
+            element: <CreateInvoice />,
+          },
             {
               path: "/WithdrawalManagement/ManageBanks",
               element: (
@@ -168,7 +178,7 @@ export const router = createBrowserRouter([
               ),
             },
           {
-            path: "Customers/AllCustomers/Create",
+            path: "Customers/AllCustomers/CreateCustomer",
             element: <CustomerForm />,
           },
           {

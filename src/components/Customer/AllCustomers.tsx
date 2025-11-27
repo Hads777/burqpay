@@ -242,7 +242,7 @@ const AllCustomers = () => {
             borderRadius: "6px",
             padding: "8px 24px",
           }}
-          onClick={() => navigate("/Customers/AllCustomers/Create")}
+          onClick={() => navigate("/Customers/AllCustomers/CreateCustomer")}
         >
           Add Customer
         </Button>
