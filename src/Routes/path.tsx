@@ -90,6 +90,7 @@ import LedgerList from "../components/Ledger/LedgerList";
 import Epos from "../components/Epos/Epos";
 =======
 import AllInvoices from "../components/Invoices/AllInvoices";
+import InvoiceDetail from "../components/Invoices/InvoiceDetail";
 import CreateInvoice from "../components/Invoices/CreateInvoice";
 >>>>>>> e00c2afd85cbf6f7b7925c0e2e24b38ece29d567
 export const router = createBrowserRouter([
@@ -171,6 +172,10 @@ export const router = createBrowserRouter([
           {
             path: "Invoices/AllInvoices",
             element: <AllInvoices/>,
+          },
+          {
+            path: "Invoices/InvoiceDetail/ViewInvoice",
+            element: <InvoiceDetail />,
           },
           {
             path: "Invoices/CreateInvoice",
