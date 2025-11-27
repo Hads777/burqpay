@@ -85,6 +85,20 @@ const DasbhboardSidebar = () => {
         }
       ],
     },
+    hasAccess("customer_module") && {
+      label: "Manage Invoices",
+      Link: "/Invoices/AllInvoices",
+      active: pathname.split("/").includes("Invoices"),
+      menu: [
+        {
+          label: "All Invoices",
+          Link: "AllInvoices",
+          LinkLabel: "Invoices",
+          img: Images.accountIcon,
+          active: pathname == "/Invoices/AllInvoices",
+        }
+      ],
+    },
     hasAccess(["roles_module", "department_module", "employee_module"]) && {
       label: "ACL",
       Link: "UserRoleManagement/Employees",

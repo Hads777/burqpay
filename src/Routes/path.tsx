@@ -85,8 +85,13 @@ import CampaignSystem from "../components/System/CampaignSystem";
 import CustomerForm from "../components/Customer/CustomerForm";
 import CustomerInfo from "../components/Customer/CustomerInfo";
 import Management from "../components/Management/Management";
+<<<<<<< HEAD
 import LedgerList from "../components/Ledger/LedgerList";
 import Epos from "../components/Epos/Epos";
+=======
+import AllInvoices from "../components/Invoices/AllInvoices";
+import CreateInvoice from "../components/Invoices/CreateInvoice";
+>>>>>>> e00c2afd85cbf6f7b7925c0e2e24b38ece29d567
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -163,6 +168,14 @@ export const router = createBrowserRouter([
                 <AllCustomers />
             ),
           },
+          {
+            path: "Invoices/AllInvoices",
+            element: <AllInvoices/>,
+          },
+          {
+            path: "Invoices/CreateInvoice",
+            element: <CreateInvoice />,
+          },
             {
               path: "/WithdrawalManagement/ManageBanks",
               element: (
@@ -182,7 +195,7 @@ export const router = createBrowserRouter([
               ),
             },
           {
-            path: "Customers/AllCustomers/Create",
+            path: "Customers/AllCustomers/CreateCustomer",
             element: <CustomerForm />,
           },
           {
