@@ -40,10 +40,17 @@ const AllInvoices = () => {
   }, [page, pageSize]);
 
   const totalPage = Math.ceil(totalRows / pageSize);
+
+  const handleMenuClick = (key: string, row: any) => {
+    if (key === "view") {
+      navigate(`/Invoices/InvoiceDetail/ViewInvoice`);
+    }
+  };
+
   const getMenuItems = (row: any) => [
     {
-      key: "edit",
-      icon: <EyeOutlined/>,
+      key: "view",
+      icon: <EyeOutlined />,
       label: "View",
       onClick: () => handleMenuClick("view", row),
     },
@@ -120,7 +127,6 @@ const AllInvoices = () => {
   return (
     <div className="service">
       <div className="d-flex justify-content-end align-items-center mb-3">
-        {/* <h4 className="mb-0 fw-bold">All Invoices</h4> */}
         <Button
           type="primary"
           style={{
@@ -185,7 +191,3 @@ const AllInvoices = () => {
 };
 
 export default AllInvoices;
-
-function handleMenuClick(arg0: string, row: any) {
-    throw new Error("Function not implemented.");
-}

@@ -86,6 +86,7 @@ import CustomerForm from "../components/Customer/CustomerForm";
 import CustomerInfo from "../components/Customer/CustomerInfo";
 import Management from "../components/Management/Management";
 import AllInvoices from "../components/Invoices/AllInvoices";
+import InvoiceDetail from "../components/Invoices/InvoiceDetail";
 import CreateInvoice from "../components/Invoices/CreateInvoice";
 export const router = createBrowserRouter([
   {
@@ -166,6 +167,10 @@ export const router = createBrowserRouter([
           {
             path: "Invoices/AllInvoices",
             element: <AllInvoices/>,
+          },
+          {
+            path: "Invoices/InvoiceDetail/ViewInvoice",
+            element: <InvoiceDetail />,
           },
           {
             path: "Invoices/CreateInvoice",
