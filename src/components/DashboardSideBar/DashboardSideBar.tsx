@@ -71,7 +71,7 @@ const DasbhboardSidebar = () => {
     },
 
     hasAccess("customer_module") && {
-      label: "Customers",
+      label: "Manage Customers",
       Link: "/Customers/AllCustomers",
       // img: Images.customerManagement,
       active: pathname.split("/").includes("Customers"),
@@ -82,39 +82,7 @@ const DasbhboardSidebar = () => {
           LinkLabel: "Customers",
           img: Images.accountIcon,
           active: pathname == "/Customers/AllCustomers",
-        },
-        // {
-        //   label: "Complaints",
-        //   Link: "AllComplaints",
-        //   LinkLabel: "Customers",
-        //   active: pathname == "/Customers/AllComplaints",
-        //   submenu: [
-        //     {
-        //       label: "All Complaints",
-        //       Link: "AllComplaints",
-        //       LinkLabel: "Customers",
-        //       active: pathname == "/Customers/AllComplaints",
-        //     },
-        //     {
-        //       label: "Complaints Type",
-        //       Link: "ComplaintsType",
-        //       LinkLabel: "Customers",
-        //       active: pathname == "/Customers/ComplaintsType",
-        //     },
-        //     {
-        //       label: "Complaints Sub-Type",
-        //       Link: "ComplaintSubType",
-        //       LinkLabel: "Customers",
-        //       active: pathname == "/Customers/ComplaintSubType",
-        //     },
-        //   ],
-        // },
-        // {
-        //   label: "Bookings",
-        //   Link: "Bookings",
-        //   LinkLabel: "Customers",
-        //   active: pathname == "/Customers/Bookings",
-        // },
+        }
       ],
     },
     hasAccess(["roles_module", "department_module", "employee_module"]) && {
@@ -151,30 +119,6 @@ const DasbhboardSidebar = () => {
           LinkLabel: "UserRoleManagement",
           img: Images.accountIcon,
           active: pathname == "/UserRoleManagement/Departments",
-        },
-      ],
-    },
-
-    hasAccess(["package_module"]) && {
-      label: "Packages",
-      Link: "/Packages/AllPackages",
-      active: pathname.split("/").includes("Packages"),
-      // img: Images.accountIcon,
-      menu: [
-        hasAccess("package_module") && {
-          label: "Packages List",
-          Link: "AllPackages",
-          LinkLabel: "Packages",
-          img: Images.accountIcon,
-          active: pathname == "/Packages/AllPackages",
-          activePaths:['/Packages/AddNewPackage','/Packages/View/PackageDetails']
-        },
-         {
-          label: "Companies List",
-          Link: "Companies",
-          LinkLabel: "Packages",
-          img: Images.accountIcon,
-          active: pathname == "/Packages/Companies",
         },
       ],
     },
@@ -224,6 +168,21 @@ const DasbhboardSidebar = () => {
           img: Images.accountIcon,
           active: pathname == "/Wallet/TopUp",
         },
+      ],
+    },
+     {
+      label: "Withdrawal Management",
+      Link: "/WithdrawalManagement/ManageBanks",
+      active: pathname.split("/").includes("WithdrawalManagement"),
+      // img: Images.accountIcon,
+      menu: [
+           {
+          label: "Manage Banks",
+          Link: "ManageBanks",
+          LinkLabel: "WithdrawalManagement",
+          img: Images.accountIcon,
+          active: pathname == "/WithdrawalManagement/ManageBanks",
+        }
       ],
     },
     {

@@ -5660,7 +5660,6 @@ span.asc.__rdt_custom_sort_icon__ img {
 .bp-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
   background: #ffffff;
   border-radius: 18px;
   overflow: hidden;
@@ -5678,8 +5677,13 @@ span.asc.__rdt_custom_sort_icon__ img {
 }
 
 .bp-table th {
+  font-size: 15px;
   font-weight: 500;
   color: #4b5563;
+}
+
+.bp-table td {
+  font-size: 14px;
 }
 
 .bp-table tbody tr:nth-child(even) {
