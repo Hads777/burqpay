@@ -185,6 +185,27 @@ const DasbhboardSidebar = () => {
         }
       ],
     },
+     {
+      label: "Ledger",
+      Link: "/Ledger/LedgerList",
+      active: pathname.split("/").includes("Ledger"),
+      // img: Images.accountIcon,
+      menu: [
+           {
+          label: "All Ledger",
+          Link: "LedgerList",
+          LinkLabel: "Ledger",
+          img: Images.accountIcon,
+          active: pathname == "/Ledger/LedgerList",
+        }
+      ],
+    },
+    {
+      label: "E-Pos",
+      Link: "Epos/AllEpos",
+      img: Images.accountIcon,
+      active: pathname === "/Epos/AllEpos",
+    },
     {
       label: "Transactions",
       Link:  "Transactions/PackagesList",

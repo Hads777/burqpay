@@ -85,6 +85,8 @@ import CampaignSystem from "../components/System/CampaignSystem";
 import CustomerForm from "../components/Customer/CustomerForm";
 import CustomerInfo from "../components/Customer/CustomerInfo";
 import Management from "../components/Management/Management";
+import LedgerList from "../components/Ledger/LedgerList";
+import Epos from "../components/Epos/Epos";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -165,6 +167,18 @@ export const router = createBrowserRouter([
               path: "/WithdrawalManagement/ManageBanks",
               element: (
                   <Management />
+              ),
+            },
+            {
+              path: "/Ledger/LedgerList",
+              element: (
+                  <LedgerList />
+              ),
+            },
+             {
+              path: "Epos/AllEpos",
+              element: (
+                  <Epos />
               ),
             },
           {

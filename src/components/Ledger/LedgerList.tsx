@@ -29,7 +29,7 @@ import { useSelector } from "react-redux";
 
 import { RootState } from "../../redux/rootReducer";
 
-const Management = () => {
+const LedgerList = () => {
   const [skelitonLoading, setSkelitonLoading] = useState(false);
   const [tableData, setTableData] = useState<any[]>([]);
   const [page, setPage] = useState(1);
@@ -90,113 +90,84 @@ const Management = () => {
   };
   const dummyUserMapped = [
     {
-      user_id: "1",
-      name: "Ali Raza",
-      phone: "03001234567",
-      cnic: "35202-1234567-1",
-      accountBalance: "150000",
-      UpdatedBy: "2024-05-06 09:30:00", // Register Date
-      accountType: "Savings",
-      accountStatus: "active",
+      id: 1,
+      srNo: "01",
+      invoiceId: "1755246645",
+      customerName: "Ahmad Aziz",
+      gateway: "VISA",
+      credit: "0.00",
+      debit: "0.00",
+      pay: "Paid through Card",
     },
     {
-      user_id: "2",
-      name: "Sara Ahmed",
-      phone: "03111234567",
-      cnic: "35202-1234567-2",
-      accountBalance: "35000",
-      UpdatedBy: "2024-05-05 14:20:00",
-      accountType: "Current",
-      accountStatus: "inactive",
+      id: 2,
+      srNo: "02",
+      invoiceId: "1755246645",
+      customerName: "Ahmad Aziz",
+      gateway: "VISA",
+      credit: "0.00",
+      debit: "0.00",
+      pay: "Paid through Card",
     },
     {
-      user_id: "3",
-      name: "Faisal Khan",
-      phone: "03211234567",
-      cnic: "35202-1234567-3",
-      accountBalance: "56000",
-      UpdatedBy: "2024-05-04 10:10:00",
-      accountType: "Business",
-      accountStatus: "active",
+      id: 3,
+      srNo: "01",
+      invoiceId: "1755246645",
+      customerName: "Ahmad Aziz",
+      gateway: "VISA",
+      credit: "0.00",
+      debit: "0.00",
+      pay: "Paid through Card",
+    },
+    {
+      id: 4,
+      srNo: "02",
+      invoiceId: "1755246645",
+      customerName: "Ahmad Aziz",
+      gateway: "VISA",
+      credit: "0.00",
+      debit: "0.00",
+      pay: "Paid through Card",
     },
   ];
 
-  // Close popup when clicking outside
+  // Ledger table headers – match design (Sr No, Invoice ID, Customer Name, Gate Way, Credit, Debit, Pay)
   const Activity_Loans_Header = [
     {
-      name: "Consumer ID",
+      name: "Sr No.",
+      selector: (row: { srNo: any }) => row.srNo,
       sortable: true,
-      cell: (row: any) => (
-        <div
-        // onClick={() => {
-        //   navigate(`/Customers/CustomerDetails/${row.user_id}`);
-        // }}
-        >
-          {row.customer_id}
-        </div>
-      ),
+      width: "90px",
     },
     {
-      name: "Name",
-      selector: (row: { name: any }) => row.name,
+      name: "Invoice ID",
+      selector: (row: { invoiceId: any }) => row.invoiceId,
       sortable: true,
     },
     {
-      name: "Phone",
-      selector: (row: { phone: any }) => row.phone,
+      name: "Customer Name",
+      selector: (row: { customerName: any }) => row.customerName,
       sortable: true,
     },
     {
-      name: "Created Date",
-      selector: (row: { created_at: any }) => row.created_at,
+      name: "Gate Way",
+      selector: (row: { gateway: any }) => row.gateway,
       sortable: true,
     },
     {
-      name: "Status",
-      cell: (row: any) => (
-        <div
-          style={{
-            padding: "0.22rem 1rem",
-            borderRadius: "12px",
-            backgroundColor:
-              row.accountStatus === 1
-                ? "#03BB86" : row.accountStatus === 2 ? "#9C9C9C" :
-               
-        
-                 "red",
-            color: "#ffffff",
-            cursor: row.accountStatus === 1 ? "pointer" : "default",
-          }}
-        >
-          {row.accountStatus == 1 ? "Active":row.accountStatus == 2 ?"Pending" : "Inactive"}
-        </div>
-      ),
-    },
-    {
-      name: "No. of Invoices",
-      selector: (row: { invoices: any }) => row.invoices || 0,
+      name: "Credit",
+      selector: (row: { credit: any }) => row.credit,
       sortable: true,
     },
     {
-      name: "Action",
-
-      cell: (row: any) => (
-        <Dropdown overlay={menu(row)} trigger={["click"]}>
-          <Button
-            className="gradient-btn"
-            type="primary"
-            style={{
-              backgroundColor: "#000000 !important",
-              color: "#000000",
-              borderColor: "white",
-              borderRadius: "8px",
-              padding: "10px 20px",
-            }}
-          >
-            Select <img src={arrowDown} alt="" />
-          </Button>
-        </Dropdown>
-      ),
+      name: "Debit",
+      selector: (row: { debit: any }) => row.debit,
+      sortable: true,
+    },
+    {
+      name: "Pay",
+      selector: (row: { pay: any }) => row.pay,
+      sortable: true,
     },
   ];
   // Initialize table data with dummy records (no API call)
@@ -213,17 +184,14 @@ const Management = () => {
     tableData &&
     tableData?.map((item: any, index: any) => {
       return {
-        id: item.id,
-        user_id: index + 1,
-        name: item?.name || item?.full_name || "--------",
-        phone: item?.phone || "--------",
-        cnic: item?.cnic || "--------",
-        email: item?.email || "--------",
-        customer_id: item?.customer_id || "--------",
-        accountType: item?.user_type_name,
-        accountStatus: item?.status || 1,
-        created_at: item?.created_at || "--------",
-        invoices: item?.invoices_count || 0,
+        id: item.id || index + 1,
+        srNo: item?.srNo || "",
+        invoiceId: item?.invoiceId || "",
+        customerName: item?.customerName || "",
+        gateway: item?.gateway || "",
+        credit: item?.credit || "0.00",
+        debit: item?.debit || "0.00",
+        pay: item?.pay || "",
       };
     });
   const handleSubmitBank = (values: any) => {
@@ -239,24 +207,7 @@ const Management = () => {
     <div className="service customer-list-page">
       {skelitonLoading && <Loader />}
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h4 className="mb-0 fw-bold"></h4>
-        <Button
-          type="primary"
-          style={{
-            backgroundColor: "#C91E14",
-            borderColor: "#C91E14",
-            borderRadius: "6px",
-            padding: "8px 24px",
-          }}
-          onClick={() => {
-            setSelectedItem("add");
-            setRowData({});
-            form.resetFields();
-            setIsModalVisible(true);
-          }}
-        >
-          Add Bank
-        </Button>
+        
       </div>
 
       <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
@@ -379,4 +330,4 @@ const Management = () => {
   );
 };
 
-export default Management;
+export default LedgerList;
