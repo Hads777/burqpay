@@ -72,13 +72,13 @@ import ActivityLogs from "../components/System/AcitivityLogs";
 import OrderPackagesDetails from "../components/Customer/OrderPackagesDetails";
 import PublicPrivacyPage from "../components/System/PublicPrivacyPage";
 import LayoutPrivacy from "../Layout/PrivacyLayout";
-import CustomerReports from "../components/Reports/CustomerReports";
+import PaymentReports from "../components/Reports/PaymentReport";
 import ChangePassword from "../components/Login/ChangePassword";
-import OrderReports from "../components/Reports/OrderReports";
-import ComplaintsReports from "../components/Reports/ComplaintsReports";
-import PackagesReports from "../components/Reports/PackagesReports";
-import WalletTopUpReports from "../components/Reports/WalletTopUpReports";
-import SpendingReports from "../components/Reports/SpendingReports";
+// import OrderReports from "../components/Reports/OrderReports";
+// import ComplaintsReports from "../components/Reports/ComplaintsReports";
+// import PackagesReports from "../components/Reports/PackagesReports";
+// import WalletTopUpReports from "../components/Reports/WalletTopUpReports";
+// import SpendingReports from "../components/Reports/SpendingReports";
 import PackagesList from "../components/Transactions/PackagesList";
 import Vendors from "../components/Transactions/Vendors";
 import CampaignSystem from "../components/System/CampaignSystem";
@@ -89,6 +89,9 @@ import AllInvoices from "../components/Invoices/AllInvoices";
 import CreateInvoice from "../components/Invoices/CreateInvoice";
 import LedgerList from "../components/Ledger/LedgerList";
 import Epos from "../components/Epos/Epos";
+import InvoiceDetail from "../components/Invoices/InvoiceDetail";
+import InvoiceReports from "../components/Reports/InvoiceReport";
+import WithdrawalReport from "../components/Reports/WithdrawalReport";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -173,6 +176,10 @@ export const router = createBrowserRouter([
             path: "Invoices/CreateInvoice",
             element: <CreateInvoice />,
           },
+          {
+            path: "Invoices/InvoiceDetail/ViewInvoice",
+            element: <InvoiceDetail/>,
+          },
             {
               path: "/WithdrawalManagement/ManageBanks",
               element: (
@@ -223,15 +230,15 @@ export const router = createBrowserRouter([
             path: "Customers/Visitors/CustomerDetails/:id",
             element: <CustomerProfile />,
           },
-          { path: "UserRoleManagement/Employees", element: <Employees /> },
-          { path: "UserRoleManagement/Permission", element: <Permission /> },
-          {
-            path: "UserRoleManagement/Departments",
-            element: <DepartmentList />,
-          },
-          { path: "UserRoleManagement/Role", element: <Role /> },
+          { path: "UserRoleManagement/Users", element: <Employees /> },
+          // { path: "UserRoleManagement/Permission", element: <Permission /> },
+          // {
+          //   path: "UserRoleManagement/Departments",
+          //   element: <DepartmentList />,
+          // },
+          { path: "UserRoleManagement/Roles", element: <Role /> },
           // { path: "UserRoleManagement/AddRole", element: <AddRole /> },
-          { path: "Customers/AllComplaints", element: <AllComplaints /> },
+          // { path: "Customers/AllComplaints", element: <AllComplaints /> },
  
           { path: "Customers/ComplaintsType", element: <ComplaintsType /> },
           { path: "Customers/ComplaintSubType", element: <ComplaintSubType /> },
@@ -260,12 +267,9 @@ export const router = createBrowserRouter([
           { path: "Settings/AboutMabrour", element: <AboutMubrour /> },
           { path: "Settings/Faqs", element: <Faqs /> },
           { path: "Campaign/CampaignList", element: <CampaignList /> },
-          { path: "Reports/CustomerReports", element: <CustomerReports /> },
-          { path: "Reports/OrderReports", element: <OrderReports /> },
-          { path: "Reports/ComplaintReports", element: <ComplaintsReports /> },
-          { path: "Reports/PackagesReports", element: <PackagesReports /> },
-          { path: "Reports/WalletTopUpReports", element: <WalletTopUpReports /> },
-          { path: "Reports/SpendingReports", element: <SpendingReports /> },
+          { path: "Reports/PaymentReports", element: <PaymentReports /> },
+          { path: "Reports/InvoiceReports", element: <InvoiceReports/> },
+          { path: "Reports/WithdrawalReports", element: <WithdrawalReport/> },
           { path: "Transactions/PackagesList", element: <PackagesList /> },
           { path: "Transactions/Vendors", element: <Vendors /> },
           { path: "Settings/CampaignSystem", element: <CampaignSystem /> },

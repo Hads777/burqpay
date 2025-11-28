@@ -99,91 +99,55 @@ const DasbhboardSidebar = () => {
         }
       ],
     },
-    hasAccess(["roles_module", "department_module", "employee_module"]) && {
-      label: "ACL",
-      Link: "UserRoleManagement/Employees",
-      // img: Images.customer,
-      active: pathname.split("/").includes("UserRoleManagement"),
-      menu: [
-        hasAccess("employee_module") && {
-          label: "Employees",
-          Link: "Employees",
-          LinkLabel: "UserRoleManagement",
-          img: Images.accountIcon,
-          active: pathname == "/UserRoleManagement/Employees",
-        },
-        hasAccess("roles_module") && {
-          label: "Roles",
-          Link: "Role",
-          LinkLabel: "UserRoleManagement",
-          img: Images.accountIcon,
-          active: pathname == "/UserRoleManagement/Role",
-        },
-        // hasAccess("permissions_module")&&
-        {
-          label: "Permission",
-          Link: "Permission",
-          LinkLabel: "UserRoleManagement",
-          img: Images.accountIcon,
-          active: pathname == "/UserRoleManagement/Permission",
-        },
-        hasAccess("department_module") && {
-          label: "Departments",
-          Link: "Departments",
-          LinkLabel: "UserRoleManagement",
-          img: Images.accountIcon,
-          active: pathname == "/UserRoleManagement/Departments",
-        },
-      ],
-    },
+   
 
-    hasAccess(["orders_module"]) && {
-      label: "Orders",
-      Link: "/Booking/Flights",
-      // img: Images.setting,
-      active: pathname.split("/").includes("Booking"),
-      menu: [
-        hasAccess("orders_module") && {
-          label: "Flights",
-          Link: "Flights",
-          LinkLabel: "Booking",
-          img: Images.accountIcon,
-          active: pathname == "/Booking/Flights",
-          activePaths:['/Booking/Flights/FlightDetails']
-        },
-        {
-          label: "E-commerce",
-          Link: "Ecommerce",
-          LinkLabel: "Orders",
-          img: Images.accountIcon,
-          active: pathname == "/Orders/Ecommerce",
-          activePaths:['/Orders/Ecommerce/Details']
-        },
-        {
-          label: "Packages",
-          Link: "Packages",
-          LinkLabel: "Orders",
-          img: Images.accountIcon,
-          active: pathname == "/Orders/Packages",
-          activePaths:['/Orders/Packages/Details']
-        },
-      ],
-    },
-    hasAccess(["topup_module"]) && {
-      label: "Wallet Top-UP",
-      Link: "/Wallet/TopUp",
-      active: pathname.split("/").includes("TopUp"),
-      // img: Images.accountIcon,
-      menu: [
-        {
-          label: "Top-UP",
-          Link: "TopUp",
-          LinkLabel: "Wallet",
-          img: Images.accountIcon,
-          active: pathname == "/Wallet/TopUp",
-        },
-      ],
-    },
+    // hasAccess(["orders_module"]) && {
+    //   label: "Orders",
+    //   Link: "/Booking/Flights",
+    //   // img: Images.setting,
+    //   active: pathname.split("/").includes("Booking"),
+    //   menu: [
+    //     hasAccess("orders_module") && {
+    //       label: "Flights",
+    //       Link: "Flights",
+    //       LinkLabel: "Booking",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Booking/Flights",
+    //       activePaths:['/Booking/Flights/FlightDetails']
+    //     },
+    //     {
+    //       label: "E-commerce",
+    //       Link: "Ecommerce",
+    //       LinkLabel: "Orders",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Orders/Ecommerce",
+    //       activePaths:['/Orders/Ecommerce/Details']
+    //     },
+    //     {
+    //       label: "Packages",
+    //       Link: "Packages",
+    //       LinkLabel: "Orders",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Orders/Packages",
+    //       activePaths:['/Orders/Packages/Details']
+    //     },
+    //   ],
+    // },
+    // hasAccess(["topup_module"]) && {
+    //   label: "Wallet Top-UP",
+    //   Link: "/Wallet/TopUp",
+    //   active: pathname.split("/").includes("TopUp"),
+    //   // img: Images.accountIcon,
+    //   menu: [
+    //     {
+    //       label: "Top-UP",
+    //       Link: "TopUp",
+    //       LinkLabel: "Wallet",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Wallet/TopUp",
+    //     },
+    //   ],
+    // },
      {
       label: "Withdrawal Management",
       Link: "/WithdrawalManagement/ManageBanks",
@@ -214,90 +178,68 @@ const DasbhboardSidebar = () => {
         }
       ],
     },
-    {
-      label: "E-Pos",
-      Link: "Epos/AllEpos",
-      img: Images.accountIcon,
-      active: pathname === "/Epos/AllEpos",
-    },
-    {
-      label: "Transactions",
-      Link:  "Transactions/PackagesList",
-      LinkLabel: "Transactions",
-      active: pathname.split("/").includes("Transactions"),
-      menu: [
-        // hasAccess("terms&conditions_module") && 
-        {
-          label: "Packages List",
-          Link: "PackagesList",
-          LinkLabel: "Transactions",
-          img: Images.accountIcon,
-          active: pathname == "/Transactions/PackagesList",
-        },
+    
+    // {
+    //   label: "Transactions",
+    //   Link:  "Transactions/PackagesList",
+    //   LinkLabel: "Transactions",
+    //   active: pathname.split("/").includes("Transactions"),
+    //   menu: [
+    //     // hasAccess("terms&conditions_module") && 
+    //     {
+    //       label: "Packages List",
+    //       Link: "PackagesList",
+    //       LinkLabel: "Transactions",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Transactions/PackagesList",
+    //     },
 
-        {
-          label: "Vendors",
-          Link: "Vendors",
-          LinkLabel: "Transactions",
-          img: Images.accountIcon,
-          active: pathname == "/Transactions/Vendors",
-        },
+    //     {
+    //       label: "Vendors",
+    //       Link: "Vendors",
+    //       LinkLabel: "Transactions",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Transactions/Vendors",
+    //     },
 
         
-      ],
-    },
+    //   ],
+    // },
     {
       label: "Reports",
-      Link:  "Reports/CustomerReports",
+      Link:  "Reports/PaymentReports",
       LinkLabel: "Reports",
       active: pathname.split("/").includes("Reports"),
       menu: [
         // hasAccess("terms&conditions_module") && 
         {
-          label: "Customer Report",
-          Link: "CustomerReports",
+          label: "Payment Report",
+          Link: "PaymentReports",
           LinkLabel: "Reports",
           img: Images.accountIcon,
-          active: pathname == "/Reports/CustomerReports",
-        },
-
-        {
-          label: "Orders Report",
-          Link: "OrderReports",
-          LinkLabel: "Reports",
-          img: Images.accountIcon,
-          active: pathname == "/Reports/OrderReports",
-        },
-
-        {
-          label: "Packages Report",
-          Link: "PackagesReports",
-          LinkLabel: "Reports",
-          img: Images.accountIcon,
-          active: pathname == "/Reports/PackagesReports",
+          active: pathname == "/Reports/PaymentReports",
         },
         {
-          label: "Complaints Report",
-          Link: "ComplaintReports",
+          label: "Invoice Report",
+          Link: "InvoiceReports",
           LinkLabel: "Reports",
           img: Images.accountIcon,
-          active: pathname == "/Reports/ComplaintReports",
+          active: pathname == "/Reports/InvoiceReports",
         },
         {
-          label: "Wallet Top-Up Report",
-          Link: "WalletTopUpReports",
+          label: "Withdrawal Report",
+          Link: "WithdrawalReports",
           LinkLabel: "Reports",
           img: Images.accountIcon,
-          active: pathname == "/Reports/WalletTopUpReports",
-        },
-        {
-          label: "Spending Report",
-          Link: "SpendingReports",
-          LinkLabel: "Reports",
-          img: Images.accountIcon,
-          active: pathname == "/Reports/SpendingReports",
+          active: pathname == "/Reports/WithdrawalReports",
         },
       ],
+    },
+    {
+      label: "E-Pos",
+      Link: "Epos/AllEpos",
+      img: Images.accountIcon,
+      active: pathname === "/Epos/AllEpos",
     },
     hasAccess(["faq_module"]) && {
       label: "Settings",
@@ -345,7 +287,44 @@ const DasbhboardSidebar = () => {
         },
       ],
     },
-    
+    hasAccess(["roles_module", "department_module", "employee_module"]) && {
+      label: "ACL",
+      Link: "UserRoleManagement/Roles",
+      // img: Images.customer,
+      active: pathname.split("/").includes("UserRoleManagement"),
+      menu: [
+        hasAccess("roles_module") && {
+          label: "Roles",
+          Link: "Roles",
+          LinkLabel: "UserRoleManagement",
+          img: Images.accountIcon,
+          active: pathname == "/UserRoleManagement/Roles",
+        },
+        hasAccess("employee_module") && {
+          label: "Users",
+          Link: "Users",
+          LinkLabel: "UserRoleManagement",
+          img: Images.accountIcon,
+          active: pathname == "/UserRoleManagement/Users",
+        },
+      
+        // hasAccess("permissions_module")&&
+        // {
+        //   label: "Permission",
+        //   Link: "Permission",
+        //   LinkLabel: "UserRoleManagement",
+        //   img: Images.accountIcon,
+        //   active: pathname == "/UserRoleManagement/Permission",
+        // },
+        // hasAccess("department_module") && {
+        //   label: "Departments",
+        //   Link: "Departments",
+        //   LinkLabel: "UserRoleManagement",
+        //   img: Images.accountIcon,
+        //   active: pathname == "/UserRoleManagement/Departments",
+        // },
+      ],
+    },
   ];
   const [activeBar, setActiveBar] = useState(
     () =>

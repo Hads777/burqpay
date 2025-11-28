@@ -3,29 +3,34 @@ import { Button, DatePicker, Dropdown, Menu, Select } from "antd";
 import TableView from "../TableView/TableView";
 import { FaFilter } from "react-icons/fa";
 import { Images } from "../Config/Images";
-import arrowDown from "../../assets/images/arrow-down.png";
+import { DownOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
 
-const dummyRoles = Array.from({ length: 93 }).map((_, index) => {
-  const id = index + 1;
-  const isMerchant = id % 2 === 0;
+const dummyPayments = Array.from({ length: 93 }).map((_, index) => {
+  const sl = index + 1;
+  const isEven = sl % 2 === 0;
   return {
-    id,
-    name: isMerchant ? "Merchant" : "User",
-    permissions: "Ledger/Customers/Reports",
+    id: sl,
+    sl,
+    customerName: "Ahmad Aziz",
+    amount: isEven ? "SAR 100" : "SAR 54",
+    paidAt: "15 Aug 2025 13:31 PM",
+    gateway: "Visa",
+    status: "Status",
+    clearanceDate: "15 Aug 2025",
   };
 });
 
-const Employees = () => {
+const PaymentReports = () => {
   const [skelitonLoading, setSkelitonLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [totalRows] = useState(dummyRoles.length);
+  const [totalRows] = useState(dummyPayments.length);
   const [from, setFrom] = useState(1);
   const [to, setTo] = useState(Math.min(pageSize, totalRows));
   const [totalPage, setTotalPage] = useState(
-    Math.ceil(dummyRoles.length / pageSize)
+    Math.ceil(dummyPayments.length / pageSize)
   );
   const [tableData, setTableData] = useState<any[]>([]);
 
@@ -33,7 +38,7 @@ const Employees = () => {
     setSkelitonLoading(true);
     const start = (page - 1) * pageSize;
     const end = start + pageSize;
-    setTableData(dummyRoles.slice(start, end));
+    setTableData(dummyPayments.slice(start, end));
     setFrom(start + 1);
     setTo(Math.min(end, totalRows));
     setTotalPage(Math.ceil(totalRows / pageSize));
@@ -41,17 +46,14 @@ const Employees = () => {
   }, [page, pageSize, totalRows]);
 
   const handleMenuClick = (key: string, row: any) => {
-    console.log("Role action:", key, row);
+    // For now, just log – hook to navigation or actions later
+    console.log("Action:", key, row);
   };
 
   const menuItems = [
     {
-      key: "edit",
-      label: "Edit",
-    },
-    {
-      key: "delete",
-      label: "Delete",
+      key: "view",
+      label: "View",
     },
   ];
 
@@ -61,18 +63,50 @@ const Employees = () => {
 
   const Activity_Loans_Header = [
     {
-      name: "",
-      width: "60px",
-      cell: () => <input type="checkbox" />,
+      name: "SL.",
+      selector: (row: { sl: any }) => row.sl,
+      sortable: true,
+      width: "80px",
     },
     {
-      name: "Name",
-      selector: (row: { name: any }) => row.name,
+      name: "Customer Name",
+      selector: (row: { customerName: any }) => row.customerName,
       sortable: true,
     },
     {
-      name: "Permissions",
-      selector: (row: { permissions: any }) => row.permissions,
+      name: "Amount",
+      selector: (row: { amount: any }) => row.amount,
+      sortable: true,
+    },
+    {
+      name: "Paid/Cancelled at",
+      selector: (row: { paidAt: any }) => row.paidAt,
+      sortable: true,
+    },
+    {
+      name: "Gateway",
+      selector: (row: { gateway: any }) => row.gateway,
+      sortable: true,
+    },
+    {
+      name: "Status",
+      cell: (row: any) => (
+        <div
+          style={{
+            padding: "0.22rem 1.2rem",
+            borderRadius: "16px",
+            backgroundColor: "#03BB86",
+            color: "#ffffff",
+            fontSize: "12px",
+          }}
+        >
+          {row.status}
+        </div>
+      ),
+    },
+    {
+      name: "Clearance Date",
+      selector: (row: { clearanceDate: any }) => row.clearanceDate,
       sortable: true,
     },
     {
@@ -90,7 +124,7 @@ const Employees = () => {
               padding: "10px 20px",
             }}
           >
-            Select <img src={arrowDown} alt="" />
+            Select <DownOutlined />
           </Button>
         </Dropdown>
       ),
@@ -99,21 +133,6 @@ const Employees = () => {
 
   return (
     <div className="service">
-      <div className="d-flex justify-content-end align-items-center mb-3">
-        {/* <h4 className="mb-0 fw-bold">Roles</h4> */}
-        <Button
-          type="primary"
-          style={{
-            backgroundColor: "#C91E14",
-            borderColor: "#C91E14",
-            borderRadius: "6px",
-            padding: "8px 24px",
-          }}
-        >
-          Add New User
-        </Button>
-      </div>
-
       <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
         <div className="flex-grow-1">
           <div className="d-flex align-items-center gap-2 border px-3 search-box w-100">
@@ -140,8 +159,8 @@ const Employees = () => {
             suffixIcon={<FaFilter />}
           >
             <Option value="all">All</Option>
-            <Option value="user">User</Option>
-            <Option value="merchant">Merchant</Option>
+            <Option value="paid">Paid</Option>
+            <Option value="cancelled">Cancelled</Option>
           </Select>
         </div>
       </div>
@@ -153,15 +172,14 @@ const Employees = () => {
         isLoading={skelitonLoading}
         from={from}
         page={page}
-        pageSize={pageSize}
         totalPage={totalPage}
         setPage={setPage}
         setPageSize={setPageSize}
+        pageSize={pageSize}
         to={to}
       />
     </div>
   );
 };
 
-export default Employees;
-
+export default PaymentReports;
