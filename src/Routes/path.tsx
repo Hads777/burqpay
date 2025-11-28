@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import NotFound from "../components/NotFound/NotFound";
-
+ 
 import LayoutDashboard from "../Layout/LayoutDashboard";
 import RoutetoDash from "../components/DashboardHeader/RoutetoDash";
 import LandingDashboardPage from "../components/Dashboard/LandingDashboardPage";
@@ -16,7 +16,7 @@ import CustomerProfile from "../components/Customer/CustomerProfile";
 import Role from "../components/UserAndRoleManagement/Role";
 import AllRewards from "../components/Dashboard/AllRewards";
 import DashboardGameCenter from "../components/DashboardHeader/DashboardGameCenter";
-
+ 
 import FinancialLogs from "../components/System/Logs/FinancialLogs";
 import DigittLogs from "../components/System/Logs/DigittLogs";
 import SystemAudit from "../components/System/Logs/SystemAudit";
@@ -24,11 +24,11 @@ import ComplaintsType from "../components/Customer/ComplaintsType";
 import DepartmentList from "../components/UserAndRoleManagement/DepartmentList";
 import ComplaintSubType from "../components/Customer/ComplaintsSubType";
 import VendorServices from "../components/System/CommissionSlabs/VendorServices";
-
+ 
 import MobileTopup from "../components/Sales/MobileTopup";
 import MobileBundle from "../components/Sales/MobileBundle";
 import BusBooking from "../components/Sales/BusBooking";
-
+ 
 import PrivateRoute from "./PrivateRoute";
 import Vendor from "../components/System/CommissionSlabs/Vendor";
 import AirBooking from "../components/Sales/AirBooking";
@@ -85,14 +85,10 @@ import CampaignSystem from "../components/System/CampaignSystem";
 import CustomerForm from "../components/Customer/CustomerForm";
 import CustomerInfo from "../components/Customer/CustomerInfo";
 import Management from "../components/Management/Management";
-<<<<<<< HEAD
+import AllInvoices from "../components/Invoices/AllInvoices";
+import CreateInvoice from "../components/Invoices/CreateInvoice";
 import LedgerList from "../components/Ledger/LedgerList";
 import Epos from "../components/Epos/Epos";
-=======
-import AllInvoices from "../components/Invoices/AllInvoices";
-import InvoiceDetail from "../components/Invoices/InvoiceDetail";
-import CreateInvoice from "../components/Invoices/CreateInvoice";
->>>>>>> e00c2afd85cbf6f7b7925c0e2e24b38ece29d567
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -100,7 +96,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "", element: <PublicPrivacyPage /> },
       { path: "*", element: <RedirectToAppropriatePage /> },
-    
+   
     ],
   },
   {
@@ -135,11 +131,11 @@ export const router = createBrowserRouter([
             element: <IncomingOutgoingFund />,
           },
           { path: "Profile", element: <DashboardProfile /> },
-
+ 
           { path: "*", element: <NotFound /> },
         ],
       },
-
+ 
       {
         path: "",
         element: <Layout />,
@@ -154,7 +150,7 @@ export const router = createBrowserRouter([
           { path: "sales/MobileTopup", element: <MobileTopup /> },
           { path: "sales/BusBooking", element: <BusBooking /> },
           { path: "sales/MobileBundle", element: <MobileBundle /> },
-
+ 
           {
             path: "System/CommissionSlabs/VendorCommissionType",
             element: <VendorComissionSlab />,
@@ -172,10 +168,6 @@ export const router = createBrowserRouter([
           {
             path: "Invoices/AllInvoices",
             element: <AllInvoices/>,
-          },
-          {
-            path: "Invoices/InvoiceDetail/ViewInvoice",
-            element: <InvoiceDetail />,
           },
           {
             path: "Invoices/CreateInvoice",
@@ -223,7 +215,7 @@ export const router = createBrowserRouter([
           { path: "GameCenter/AllRewards", element: <AllRewards /> },
           { path: "GameCenter/Referral", element: <Referral /> },
           { path: "Campaign/Faqs", element: <Faq /> },
-
+ 
           { path: "Customers/Citizens", element: <Saudi /> },
           { path: "Customers/Residents", element: <NonSaudi /> },
           { path: "Customers/Visitors", element: <Visitors /> },
@@ -240,7 +232,7 @@ export const router = createBrowserRouter([
           { path: "UserRoleManagement/Role", element: <Role /> },
           // { path: "UserRoleManagement/AddRole", element: <AddRole /> },
           { path: "Customers/AllComplaints", element: <AllComplaints /> },
-
+ 
           { path: "Customers/ComplaintsType", element: <ComplaintsType /> },
           { path: "Customers/ComplaintSubType", element: <ComplaintSubType /> },
           { path: "Wallet/TopUp", element: <WalletTopUp /> },
