@@ -220,6 +220,34 @@ const DasbhboardSidebar = () => {
       img: Images.accountIcon,
       active: pathname === "/Epos/AllEpos",
     },
+     {
+      label: "Settings",
+      Link: "/Settings/PaymentGateway",
+      active: pathname.split("/").includes("Settings"),
+      // img: Images.accountIcon,
+      menu: [
+           {
+          label: "Payment Gateway",
+          Link: "PaymentGateway",
+          LinkLabel: "Settings",
+          img: Images.accountIcon,
+          active: pathname == "/Settings/PaymentGateway",
+        },
+         {
+          label: "Checkout Settings",
+          Link: "CheckoutSettings",
+          LinkLabel: "Settings",
+          img: Images.accountIcon,
+          active: pathname == "/Settings/CheckoutSettings",
+        }
+      ],
+    },
+     {
+      label: "Template E-Management",
+      Link: "TemplateE-Management/AllTemplate",
+      img: Images.accountIcon,
+      active: pathname === "/TemplateE-Management/AllTemplate",
+    },
     {
       label: "Transactions",
       Link:  "Transactions/PackagesList",
@@ -299,52 +327,52 @@ const DasbhboardSidebar = () => {
         },
       ],
     },
-    hasAccess(["faq_module"]) && {
-      label: "Settings",
-      Link:  hasAccess("terms&conditions_module")?"Settings/TermsPrivacyPolicy":hasAccess("mabrour_module")?"Settings/AboutMabrour":"Settings/Faqs",
-      LinkLabel: "Settings",
-      active: pathname == "/Settings/TermsPrivacyPolicy",
-      menu: [
-        // hasAccess("terms&conditions_module") && 
-        {
-          label: "Terms & Privacy Policy",
-          Link: "TermsPrivacyPolicy",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/TermsPrivacyPolicy",
-        },
+    // hasAccess(["faq_module"]) && {
+    //   label: "Settings",
+    //   Link:  hasAccess("terms&conditions_module")?"Settings/TermsPrivacyPolicy":hasAccess("mabrour_module")?"Settings/AboutMabrour":"Settings/Faqs",
+    //   LinkLabel: "Settings",
+    //   active: pathname == "/Settings/PaymentGateway",
+    //   menu: [
+    //     // hasAccess("terms&conditions_module") && 
+    //     {
+    //       label: "Payment Gateway",
+    //       Link: "PaymentGateway",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/PaymentGateway",
+    //     },
 
-        hasAccess("mabrour_module") && {
-          label: "About Mabrour",
-          Link: "AboutMabrour",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/AboutMabrour",
-        },
+    //     hasAccess("mabrour_module") && {
+    //       label: "About Mabrour",
+    //       Link: "AboutMabrour",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/AboutMabrour",
+    //     },
 
-        hasAccess("faq_module") && {
-          label: "FAQ's",
-          Link: "Faqs",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/Faqs",
-        },
-        {
-          label: "Acitivity Logs",
-          Link: "ActivityLogs",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/ActivityLogs",
-        },
-        {
-          label: "Campaign System",
-          Link: "CampaignSystem",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/CampaignSystem",
-        },
-      ],
-    },
+    //     hasAccess("faq_module") && {
+    //       label: "FAQ's",
+    //       Link: "Faqs",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/Faqs",
+    //     },
+    //     {
+    //       label: "Acitivity Logs",
+    //       Link: "ActivityLogs",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/ActivityLogs",
+    //     },
+    //     {
+    //       label: "Campaign System",
+    //       Link: "CampaignSystem",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/CampaignSystem",
+    //     },
+    //   ],
+    // },
     
   ];
   const [activeBar, setActiveBar] = useState(

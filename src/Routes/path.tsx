@@ -85,13 +85,13 @@ import CampaignSystem from "../components/System/CampaignSystem";
 import CustomerForm from "../components/Customer/CustomerForm";
 import CustomerInfo from "../components/Customer/CustomerInfo";
 import Management from "../components/Management/Management";
-<<<<<<< HEAD
-import LedgerList from "../components/Ledger/LedgerList";
-import Epos from "../components/Epos/Epos";
-=======
 import AllInvoices from "../components/Invoices/AllInvoices";
 import CreateInvoice from "../components/Invoices/CreateInvoice";
->>>>>>> e00c2afd85cbf6f7b7925c0e2e24b38ece29d567
+import LedgerList from "../components/Ledger/LedgerList";
+import Epos from "../components/Epos/Epos";
+import PaymentGateway from "../components/System/PaymentGateway";
+import CheckoutSettings from "../components/System/CheckoutSettings";
+import TemplateManagement from "../components/TemplateMangement/TemplateManagement";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -192,6 +192,24 @@ export const router = createBrowserRouter([
               path: "Epos/AllEpos",
               element: (
                   <Epos />
+              ),
+            },
+             {
+              path: "Settings/PaymentGateway",
+              element: (
+                  <PaymentGateway />
+              ),
+            },
+            {
+              path: "Settings/CheckoutSettings",
+              element: (
+                  <CheckoutSettings />
+              ),
+            },
+            {
+              path: "TemplateE-Management/AllTemplate",
+              element: (
+                  <TemplateManagement />
               ),
             },
           {
