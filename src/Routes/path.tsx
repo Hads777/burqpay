@@ -92,6 +92,9 @@ import Epos from "../components/Epos/Epos";
 import InvoiceDetail from "../components/Invoices/InvoiceDetail";
 import InvoiceReports from "../components/Reports/InvoiceReport";
 import WithdrawalReport from "../components/Reports/WithdrawalReport";
+import PaymentGateway from "../components/System/PaymentGateway";
+import CheckoutSettings from "../components/System/CheckoutSettings";
+import TemplateManagement from "../components/TemplateMangement/TemplateManagement";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -196,6 +199,24 @@ export const router = createBrowserRouter([
               path: "Epos/AllEpos",
               element: (
                   <Epos />
+              ),
+            },
+             {
+              path: "Settings/PaymentGateway",
+              element: (
+                  <PaymentGateway/>
+              ),
+            },
+            {
+              path: "Settings/CheckoutSettings",
+              element: (
+                  <CheckoutSettings/>
+              ),
+            },
+            {
+              path: "TemplateE-Management/AllTemplate",
+              element: (
+                  <TemplateManagement/>
               ),
             },
           {
