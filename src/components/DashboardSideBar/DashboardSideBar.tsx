@@ -241,51 +241,79 @@ const DasbhboardSidebar = () => {
       img: Images.accountIcon,
       active: pathname === "/Epos/AllEpos",
     },
-    hasAccess(["faq_module"]) && {
+    // hasAccess(["faq_module"]) && {
+    //   label: "Settings",
+    //   Link:  hasAccess("terms&conditions_module")?"Settings/TermsPrivacyPolicy":hasAccess("mabrour_module")?"Settings/AboutMabrour":"Settings/Faqs",
+    //   LinkLabel: "Settings",
+    //   active: pathname == "/Settings/TermsPrivacyPolicy",
+    //   menu: [
+    //     // hasAccess("terms&conditions_module") && 
+    //     {
+    //       label: "Terms & Privacy Policy",
+    //       Link: "TermsPrivacyPolicy",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/TermsPrivacyPolicy",
+    //     },
+
+    //     hasAccess("mabrour_module") && {
+    //       label: "About Mabrour",
+    //       Link: "AboutMabrour",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/AboutMabrour",
+    //     },
+
+    //     hasAccess("faq_module") && {
+    //       label: "FAQ's",
+    //       Link: "Faqs",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/Faqs",
+    //     },
+    //     {
+    //       label: "Acitivity Logs",
+    //       Link: "ActivityLogs",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/ActivityLogs",
+    //     },
+    //     {
+    //       label: "Campaign System",
+    //       Link: "CampaignSystem",
+    //       LinkLabel: "Settings",
+    //       img: Images.accountIcon,
+    //       active: pathname == "/Settings/CampaignSystem",
+    //     },
+    //   ],
+    // },
+    {
       label: "Settings",
-      Link:  hasAccess("terms&conditions_module")?"Settings/TermsPrivacyPolicy":hasAccess("mabrour_module")?"Settings/AboutMabrour":"Settings/Faqs",
-      LinkLabel: "Settings",
-      active: pathname == "/Settings/TermsPrivacyPolicy",
+      Link: "/Settings/PaymentGateway",
+      active: pathname.split("/").includes("Settings"),
+      // img: Images.accountIcon,
       menu: [
-        // hasAccess("terms&conditions_module") && 
-        {
-          label: "Terms & Privacy Policy",
-          Link: "TermsPrivacyPolicy",
+           {
+          label: "Payment Gateway",
+          Link: "PaymentGateway",
           LinkLabel: "Settings",
           img: Images.accountIcon,
-          active: pathname == "/Settings/TermsPrivacyPolicy",
+          active: pathname == "/Settings/PaymentGateway",
         },
-
-        hasAccess("mabrour_module") && {
-          label: "About Mabrour",
-          Link: "AboutMabrour",
+         {
+          label: "Checkout Settings",
+          Link: "CheckoutSettings",
           LinkLabel: "Settings",
           img: Images.accountIcon,
-          active: pathname == "/Settings/AboutMabrour",
-        },
-
-        hasAccess("faq_module") && {
-          label: "FAQ's",
-          Link: "Faqs",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/Faqs",
-        },
-        {
-          label: "Acitivity Logs",
-          Link: "ActivityLogs",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/ActivityLogs",
-        },
-        {
-          label: "Campaign System",
-          Link: "CampaignSystem",
-          LinkLabel: "Settings",
-          img: Images.accountIcon,
-          active: pathname == "/Settings/CampaignSystem",
-        },
+          active: pathname == "/Settings/CheckoutSettings",
+        }
       ],
+    },
+    {
+      label: "Template E-Management",
+      Link: "TemplateE-Management/AllTemplate",
+      img: Images.accountIcon,
+      active: pathname === "/TemplateE-Management/AllTemplate",
     },
     hasAccess(["roles_module", "department_module", "employee_module"]) && {
       label: "ACL",
