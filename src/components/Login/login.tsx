@@ -120,12 +120,10 @@ const Login: React.FC = () => {
         <div className="d-flex col-5 justify-content-start align-items-center">
           <div className="col-12 justify-content-start">
             <div className="w-100 form-p">
-              <div className="col-12 d-flex justify-content-center">
-                <img src={Images.mabrourLogo} alt="" className="logo-img " />
-              </div>
-              <div className="text-center mb-4">
-                <div className="mabrour-heading">Welcome To Mabrour</div>
-                <span className="login-continue">Login to Continue</span>
+              
+              <div className="text-left mb-4 py-2">
+                <div className="mabrour-heading text-left py-2">Welcome to Your Digital <br></br> Finance Hub</div>
+                <span className="login-continue py-2" style={{display:"block"}}>Securely sign in to track accounts,<br></br> insights, and activity all in one place.</span>
               </div>
 
               <Form
@@ -196,7 +194,7 @@ const Login: React.FC = () => {
                         // navigate("/Dashboard/ProfileSetting");
                         setIsDeleteModalVisible(true);
                       }}
-                      style={{ color: "#0B8644", cursor: "pointer" }}
+                      style={{ color: "#000", cursor: "pointer" }}
                     >
                       Forgot Password?
                     </div>
@@ -208,8 +206,8 @@ const Login: React.FC = () => {
                     type="submit"
                     disabled={isLoading}
                     style={{
-                      backgroundColor: "#0B8644",
-                      borderRadius: "16px",
+                      backgroundColor: "#C91E14",
+                      borderRadius: "8px",
                       border: "none",
                       padding: "10px 20px",
                       color: "#fff",
