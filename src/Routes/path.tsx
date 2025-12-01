@@ -95,6 +95,7 @@ import WithdrawalReport from "../components/Reports/WithdrawalReport";
 import PaymentGateway from "../components/System/PaymentGateway";
 import CheckoutSettings from "../components/System/CheckoutSettings";
 import TemplateManagement from "../components/TemplateMangement/TemplateManagement";
+import BulkDisbursement from "../components/Disbursements/BulkDisbursement";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -132,6 +133,7 @@ export const router = createBrowserRouter([
           { path: "Dashboard/Onboarding", element: <DashboardOnboarding /> },
           { path: "Dashboard/Services", element: <Service /> },
           { path: "Dashboard/GameCenter", element: <DashboardGameCenter /> },
+          { path: "Wallet/Dashboard", element: <LandingDashboardPage /> },
           {
             path: "Dashboard/IncomingOutgoingFunds",
             element: <IncomingOutgoingFund />,
@@ -217,6 +219,12 @@ export const router = createBrowserRouter([
               path: "TemplateE-Management/AllTemplate",
               element: (
                   <TemplateManagement/>
+              ),
+            },
+            {
+              path: "Disbursements/BulkDisbursementList",
+              element: (
+                  <BulkDisbursement/>
               ),
             },
           {

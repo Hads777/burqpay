@@ -359,9 +359,24 @@ const DasbhboardSidebar = () => {
   const walletSidebarItems: any = [
     {
       label: "Wallet Dashboard",
-      Link: "/Dashboard", // For now reuse main dashboard route
+      Link: "/Wallet/Dashboard", // For now reuse main dashboard route
       img: Images.dashboardIcon,
-      active: pathname.split("/").includes("Dashboard"),
+      active: pathname.split("/").includes("Wallet/Dashboard"),
+    },
+    {
+      label: "Disbursements",
+      Link: "/Disbursements/BulkDisbursementList",
+      active: pathname.split("/").includes("Disbursements"),
+      // img: Images.accountIcon,
+      menu: [
+           {
+          label: "Bulk Disbursement",
+          Link: "BulkDisbursementList",
+          LinkLabel: "Disbursements",
+          img: Images.accountIcon,
+          active: pathname == "/Disbursements/BulkDisbursementList",
+        }
+      ],
     },
   ];
   const [activeBar, setActiveBar] = useState(
@@ -440,8 +455,26 @@ const DasbhboardSidebar = () => {
   );
 
   const [activeMenuGroup, setActiveMenuGroup] = useState<"wallet" | "collection">(
-    "collection"
+    () => {
+      // Default to wallet when current route belongs to wallet menu (e.g. Disbursements)
+      const walletMatch = walletSidebarItems.some((item) =>
+        pathname.startsWith(
+          typeof item.Link === "string" ? item.Link : `/${item.Link}`
+        )
+      );
+      return walletMatch ? "wallet" : "collection";
+    }
   );
+
+  // Keep toggle in sync with route changes
+  useEffect(() => {
+    const walletMatch = walletSidebarItems.some((item) =>
+      pathname.startsWith(
+        typeof item.Link === "string" ? item.Link : `/${item.Link}`
+      )
+    );
+    setActiveMenuGroup(walletMatch ? "wallet" : "collection");
+  }, [pathname]);
 
   const filteredSidebarItems =
     (activeMenuGroup === "wallet" ? walletSidebarItems : sidebarItems)?.filter(
@@ -484,7 +517,10 @@ const DasbhboardSidebar = () => {
         >
           <button
             type="button"
-            onClick={() => setActiveMenuGroup("wallet")}
+            onClick={() => {
+              setActiveMenuGroup("wallet");
+              navigate("/Wallet/Dashboard");
+            }}
             style={{
               flex: 1,
               border: "none",
@@ -506,7 +542,10 @@ const DasbhboardSidebar = () => {
           </button>
           <button
             type="button"
-            onClick={() => setActiveMenuGroup("collection")}
+            onClick={() => {
+              setActiveMenuGroup("collection");
+              navigate("/Dashboard");
+            }}
             style={{
               flex: 1,
               border: "none",
