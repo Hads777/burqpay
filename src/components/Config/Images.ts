@@ -100,7 +100,7 @@ import circle from "../../assets/images/cricle.svg";
 import assignProductIcon from "../../assets/images/assignProductIcon.svg";
 import arrowUpDown from "../../assets/images/arrow-up-down.svg";
 import searchIconGray from "../../assets/images/search-icon-gray.svg";
-import mabrourLogin from "../../assets/images/mabrourlogin.svg";
+import mabrourLogin from "../../assets/images/burqpay.png";
 import mabrourLogo from "../../assets/images/logo-1.png";
 import mabrourSignup from "../../assets/images/mabrourSignup.svg";
 import amountIcon from "../../assets/images/amountIcon.svg";
