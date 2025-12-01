@@ -354,6 +354,16 @@ const DasbhboardSidebar = () => {
       ],
     },
   ];
+
+  // Wallet-specific menu (separate from main "Collection" menu)
+  const walletSidebarItems: any = [
+    {
+      label: "Wallet Dashboard",
+      Link: "/Dashboard", // For now reuse main dashboard route
+      img: Images.dashboardIcon,
+      active: pathname.split("/").includes("Dashboard"),
+    },
+  ];
   const [activeBar, setActiveBar] = useState(
     () =>
       sidebarItems?.find((item) => pathname.includes(item?.Link))?.label || ""
@@ -429,7 +439,14 @@ const DasbhboardSidebar = () => {
     </div>
   );
 
-  const filteredSidebarItems = sidebarItems?.filter(Boolean);
+  const [activeMenuGroup, setActiveMenuGroup] = useState<"wallet" | "collection">(
+    "collection"
+  );
+
+  const filteredSidebarItems =
+    (activeMenuGroup === "wallet" ? walletSidebarItems : sidebarItems)?.filter(
+      Boolean
+    );
   return (
     <>
       <Sidebar
@@ -455,6 +472,58 @@ const DasbhboardSidebar = () => {
         >
           <img src={Images.mabrourLogo} alt="logo" />
         </div>
+
+        {/* Wallet / Collection toggle */}
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            padding: "0 16px 12px 30px",
+            marginTop: 4,
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setActiveMenuGroup("wallet")}
+            style={{
+              flex: 1,
+              border: "none",
+              borderRadius: 6,
+              padding: "12px 0",
+              cursor: "pointer",
+              fontSize: 12,
+              fontWeight: 600,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 6,
+              backgroundColor:
+                activeMenuGroup === "wallet" ? "#0B8085" : "#2A2A2A",
+              color: "#FFFFFF",
+            }}
+          >
+            Wallet
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveMenuGroup("collection")}
+            style={{
+              flex: 1,
+              border: "none",
+              borderRadius: 6,
+              padding: "12px 0",
+              cursor: "pointer",
+              fontSize: 12,
+              fontWeight: 600,
+              backgroundColor:
+                activeMenuGroup === "collection" ? "#0B8085" : "#2A2A2A",
+              color: "#FFFFFF",
+            }}
+          >
+            Collection
+          </button>
+        </div>
+
         <Menu>
           {filteredSidebarItems.map((item, index) => (
             <React.Fragment key={index}>
