@@ -219,6 +219,12 @@ export const router = createBrowserRouter([
               ),
             },
             {
+              path: "/Disbursement/BulkDisbursement",
+              element: (
+                  <BulkDisbursement/>
+              ),
+            },
+            {
               path: "/ManageEmployees/Create",
               element: <CreateEditEmployee />,
             },

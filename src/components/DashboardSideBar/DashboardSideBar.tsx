@@ -381,7 +381,7 @@ const DasbhboardSidebar = () => {
     {
       label: "Transaction History",
       Link: "/TransactionHistory/IBFTLedger",
-      active: pathname.split("/").includes("ManageEmployees"),
+      active: pathname.split("/").includes("TransactionHistory"),
       // img: Images.accountIcon,
       menu: [
            {
@@ -390,6 +390,21 @@ const DasbhboardSidebar = () => {
           LinkLabel: "TransactionHistory",
           img: Images.accountIcon,
           active: pathname == "/TransactionHistory/IBFTLedger",
+        }
+      ],
+    },
+    {
+      label: "Disbursement",
+      Link: "/Disbursement/BulkDisbursement",
+      active: pathname.split("/").includes("Disbursement"),
+      // img: Images.accountIcon,
+      menu: [
+           {
+          label: "Bulk Disbursement",
+          Link: "BulkDisbursement",
+          LinkLabel: "Disbursement",
+          img: Images.accountIcon,
+          active: pathname == "/Disbursement/BulkDisbursement",
         }
       ],
     },
