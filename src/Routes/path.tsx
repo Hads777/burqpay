@@ -96,6 +96,9 @@ import PaymentGateway from "../components/System/PaymentGateway";
 import CheckoutSettings from "../components/System/CheckoutSettings";
 import TemplateManagement from "../components/TemplateMangement/TemplateManagement";
 import BulkDisbursement from "../components/Disbursements/BulkDisbursement";
+import AllEmployees from "../components/ManageEmployees/AllEmployees";
+import CreateEditEmployee from "../components/ManageEmployees/CreateEditEmployee";
+import IbftLedger from "../components/TransactionHistory/IbftLedger";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -202,6 +205,26 @@ export const router = createBrowserRouter([
               element: (
                   <Epos />
               ),
+            },
+             {
+              path: "/ManageEmployees/AllEmployees",
+              element: (
+                  <AllEmployees/>
+              ),
+            },
+             {
+              path: "/TransactionHistory/IBFTLedger",
+              element: (
+                  <IbftLedger/>
+              ),
+            },
+            {
+              path: "/ManageEmployees/Create",
+              element: <CreateEditEmployee />,
+            },
+            {
+              path: "/ManageEmployees/Edit/:id",
+              element: <CreateEditEmployee />,
             },
              {
               path: "Settings/PaymentGateway",

@@ -364,17 +364,32 @@ const DasbhboardSidebar = () => {
       active: pathname.split("/").includes("Wallet/Dashboard"),
     },
     {
-      label: "Disbursements",
-      Link: "/Disbursements/BulkDisbursementList",
-      active: pathname.split("/").includes("Disbursements"),
+      label: "Manage Employees",
+      Link: "/ManageEmployees/AllEmployees",
+      active: pathname.split("/").includes("ManageEmployees"),
       // img: Images.accountIcon,
       menu: [
            {
-          label: "Bulk Disbursement",
-          Link: "BulkDisbursementList",
-          LinkLabel: "Disbursements",
+          label: "All Employees",
+          Link: "AllEmployees",
+          LinkLabel: "ManageEmployees",
           img: Images.accountIcon,
-          active: pathname == "/Disbursements/BulkDisbursementList",
+          active: pathname == "/ManageEmployees/AllEmployees",
+        }
+      ],
+    },
+    {
+      label: "Transaction History",
+      Link: "/TransactionHistory/IBFTLedger",
+      active: pathname.split("/").includes("ManageEmployees"),
+      // img: Images.accountIcon,
+      menu: [
+           {
+          label: "IBFT Ledger",
+          Link: "IBFTLedger",
+          LinkLabel: "TransactionHistory",
+          img: Images.accountIcon,
+          active: pathname == "/TransactionHistory/IBFTLedger",
         }
       ],
     },
