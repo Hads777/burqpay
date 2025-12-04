@@ -403,8 +403,22 @@ const DasbhboardSidebar = () => {
           label: "Bulk Disbursement",
           Link: "BulkDisbursement",
           LinkLabel: "Disbursement",
-          img: Images.accountIcon,
+          // img: Images.accountIcon,
           active: pathname == "/Disbursement/BulkDisbursement",
+        },
+        {
+          label: "Beneficiary List",
+          Link: "BeneficiaryList",
+          LinkLabel: "Disbursement",
+          // img: Images.accountIcon,
+          active: pathname == "/Disbursement/BeneficiaryList",
+        },
+        {
+          label:"Instant Transfer",
+          Link: "InstantTransfer",
+          LinkLabel: "Disbursement",
+          // img: Images.accountIcon,
+          active: pathname == "/Disbursement/InstantTransfer",
         }
       ],
     },
@@ -484,25 +498,38 @@ const DasbhboardSidebar = () => {
     </div>
   );
 
-  const [activeMenuGroup, setActiveMenuGroup] = useState<"wallet" | "collection">(
-    () => {
-      // Default to wallet when current route belongs to wallet menu (e.g. Disbursements)
-      const walletMatch = walletSidebarItems.some((item) =>
-        pathname.startsWith(
-          typeof item.Link === "string" ? item.Link : `/${item.Link}`
-        )
+  const [activeMenuGroup, setActiveMenuGroup] =
+    useState<"wallet" | "collection">(() => {
+      // Treat these top-level paths as part of the "wallet" section
+      const walletPrefixes = [
+        "/Wallet",
+        "/ManageEmployees",
+        "/TransactionHistory",
+        "/Disbursement",
+        "/InstantTransfer",
+      ];
+
+      const walletMatch = walletPrefixes.some((prefix) =>
+        pathname.startsWith(prefix)
       );
+
       return walletMatch ? "wallet" : "collection";
-    }
-  );
+    });
 
   // Keep toggle in sync with route changes
   useEffect(() => {
-    const walletMatch = walletSidebarItems.some((item) =>
-      pathname.startsWith(
-        typeof item.Link === "string" ? item.Link : `/${item.Link}`
-      )
+    const walletPrefixes = [
+      "/Wallet",
+      "/ManageEmployees",
+      "/TransactionHistory",
+      "/Disbursement",
+      "/InstantTransfer",
+    ];
+
+    const walletMatch = walletPrefixes.some((prefix) =>
+      pathname.startsWith(prefix)
     );
+
     setActiveMenuGroup(walletMatch ? "wallet" : "collection");
   }, [pathname]);
 

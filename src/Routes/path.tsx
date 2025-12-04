@@ -99,6 +99,8 @@ import BulkDisbursement from "../components/Disbursements/BulkDisbursement";
 import AllEmployees from "../components/ManageEmployees/AllEmployees";
 import CreateEditEmployee from "../components/ManageEmployees/CreateEditEmployee";
 import IbftLedger from "../components/TransactionHistory/IbftLedger";
+import BeneficiaryList from "../components/Disbursements/BeneficiaryList";
+import InstantTransfer from "../components/Disbursements/InstantTransfer";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -222,6 +224,18 @@ export const router = createBrowserRouter([
               path: "/Disbursement/BulkDisbursement",
               element: (
                   <BulkDisbursement/>
+              ),
+            },
+            {
+              path: "/Disbursement/BeneficiaryList",
+              element: (
+                  <BeneficiaryList/>
+              ),
+            },
+            {
+              path: "/Disbursement/InstantTransfer",
+              element: (
+                  <InstantTransfer/>
               ),
             },
             {
