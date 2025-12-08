@@ -48,31 +48,40 @@ const BulkDisbursement: React.FC = () => {
       name: "Batch No",
       selector: (row: { batchNo: any }) => row.batchNo,
       sortable: true,
+      width:"280px",
+      paddingLeft: "0px"
     },
     {
       name: "Maker",
       selector: (row: { maker: any }) => row.maker,
       sortable: true,
+      paddingLeft: "0px"
+
     },
     {
       name: "Approver",
       selector: (row: { approver: any }) => row.approver,
       sortable: true,
+      paddingLeft: "0px"
+
     },
     {
       name: "Batch Title",
       selector: (row: { batchTitle: any }) => row.batchTitle,
       sortable: true,
+      paddingLeft: "0px"
     },
     {
       name: "Amount",
       selector: (row: { amount: any }) => row.amount,
       sortable: true,
+      paddingLeft: "0px"
     },
     {
       name: "Disbursed Amount",
       selector: (row: { disbursedAmount: any }) => row.disbursedAmount,
       sortable: true,
+      paddingLeft: "0px"
     },
   ];
 
