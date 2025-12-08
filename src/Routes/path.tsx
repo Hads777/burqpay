@@ -101,6 +101,14 @@ import CreateEditEmployee from "../components/ManageEmployees/CreateEditEmployee
 import IbftLedger from "../components/TransactionHistory/IbftLedger";
 import BeneficiaryList from "../components/Disbursements/BeneficiaryList";
 import InstantTransfer from "../components/Disbursements/InstantTransfer";
+import LayoutOnboarding from "../Layout/LayoutOnboarding";
+import PersonalInformation from "../components/OnboardingComponents/PersonalInformation";
+import TermsConditions from "../components/OnboardingComponents/TermsConditions";
+import Verification from "../components/OnboardingComponents/Verification";
+import UploadDocument from "../components/OnboardingComponents/UploadDocument";
+import BankInfo from "../components/OnboardingComponents/BankInfo";
+import SetPassword from "../components/OnboardingComponents/SetPassword";
+import Finish from "../components/OnboardingComponents/Finish";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -148,206 +156,19 @@ export const router = createBrowserRouter([
           { path: "*", element: <NotFound /> },
         ],
       },
- 
-      {
-        path: "",
-        element: <Layout />,
-        children: [
-          { path: "Booking/Flights", element: <Flights /> },
-          { path: "Booking/Flights/FlightDetails", element: <FlightDetails /> },
-          { path: "Orders/Ecommerce", element: <Ecommerce /> },
-          { path: "Orders/Ecommerce/Details", element: <EcommerceDetails /> },
-          { path: "/Settings/ActivityLogs", element: <ActivityLogs /> },
-          { path: "Orders/Packages", element: <OrderPackages /> },
-          { path: "Orders/Packages/Details", element: <OrderPackagesDetails /> },
-          { path: "sales/MobileTopup", element: <MobileTopup /> },
-          { path: "sales/BusBooking", element: <BusBooking /> },
-          { path: "sales/MobileBundle", element: <MobileBundle /> },
- 
-          {
-            path: "System/CommissionSlabs/VendorCommissionType",
-            element: <VendorComissionSlab />,
-          },
-          {
-            path: `sales/airbooking`,
-            element: <AirBooking />,
-          },
-          {
-            path: "Customers/AllCustomers",
-            element: (
-                <AllCustomers />
-            ),
-          },
-          {
-            path: "Invoices/AllInvoices",
-            element: <AllInvoices/>,
-          },
-          {
-            path: "Invoices/CreateInvoice",
-            element: <CreateInvoice />,
-          },
-          {
-            path: "Invoices/InvoiceDetail/ViewInvoice",
-            element: <InvoiceDetail/>,
-          },
-            {
-              path: "/WithdrawalManagement/ManageBanks",
-              element: (
-                  <Management />
-              ),
-            },
-            {
-              path: "/Ledger/LedgerList",
-              element: (
-                  <LedgerList />
-              ),
-            },
-             {
-              path: "Epos/AllEpos",
-              element: (
-                  <Epos />
-              ),
-            },
-             {
-              path: "/ManageEmployees/AllEmployees",
-              element: (
-                  <AllEmployees/>
-              ),
-            },
-             {
-              path: "/TransactionHistory/IBFTLedger",
-              element: (
-                  <IbftLedger/>
-              ),
-            },
-            {
-              path: "/Disbursement/BulkDisbursement",
-              element: (
-                  <BulkDisbursement/>
-              ),
-            },
-            {
-              path: "/Disbursement/BeneficiaryList",
-              element: (
-                  <BeneficiaryList/>
-              ),
-            },
-            {
-              path: "/Disbursement/InstantTransfer",
-              element: (
-                  <InstantTransfer/>
-              ),
-            },
-            {
-              path: "/ManageEmployees/Create",
-              element: <CreateEditEmployee />,
-            },
-            {
-              path: "/ManageEmployees/Edit/:id",
-              element: <CreateEditEmployee />,
-            },
-             {
-              path: "Settings/PaymentGateway",
-              element: (
-                  <PaymentGateway/>
-              ),
-            },
-            {
-              path: "Settings/CheckoutSettings",
-              element: (
-                  <CheckoutSettings/>
-              ),
-            },
-            {
-              path: "TemplateE-Management/AllTemplate",
-              element: (
-                  <TemplateManagement/>
-              ),
-            },
-            {
-              path: "Disbursements/BulkDisbursementList",
-              element: (
-                  <BulkDisbursement/>
-              ),
-            },
-          {
-            path: "Customers/AllCustomers/CreateCustomer",
-            element: <CustomerForm />,
-          },
-          {
-            path: "Customers/AllCustomers/Edit/:id",
-            element: <CustomerForm />,
-          },
-          {
-            path: "Customers/AllCustomers/Details/:id",
-            element: <CustomerInfo />,
-          },
-          { path: "Packages/AllPackages", element: <Packages /> },
-          { path: "Packages/AddNewPackage", element: <NewPackages /> },
-          {
-            path: "Packages/AddNewPackage/EditPackage/:id",
-            element: <EditPackage />,
-          },
-          { path: "Packages/View/PackageDetails/:id", element: <PackageDetails/> },
-          { path: "Packages/Companies", element: <Companies /> },
-          { path: "Packages/CompanyView", element: <ViewCompanyList /> },
-          { path: "GameCenter/AllRewards", element: <AllRewards /> },
-          { path: "GameCenter/Referral", element: <Referral /> },
-          { path: "Campaign/Faqs", element: <Faq /> },
- 
-          { path: "Customers/Citizens", element: <Saudi /> },
-          { path: "Customers/Residents", element: <NonSaudi /> },
-          { path: "Customers/Visitors", element: <Visitors /> },
-          {
-            path: "Customers/Visitors/CustomerDetails/:id",
-            element: <CustomerProfile />,
-          },
-          { path: "UserRoleManagement/Users", element: <Employees /> },
-          // { path: "UserRoleManagement/Permission", element: <Permission /> },
-          // {
-          //   path: "UserRoleManagement/Departments",
-          //   element: <DepartmentList />,
-          // },
-          { path: "UserRoleManagement/Roles", element: <Role /> },
-          // { path: "UserRoleManagement/AddRole", element: <AddRole /> },
-          // { path: "Customers/AllComplaints", element: <AllComplaints /> },
- 
-          { path: "Customers/ComplaintsType", element: <ComplaintsType /> },
-          { path: "Customers/ComplaintSubType", element: <ComplaintSubType /> },
-          { path: "Wallet/TopUp", element: <WalletTopUp /> },
-          { path: "System/Logs/FinancialLogs", element: <FinancialLogs /> },
-          { path: "System/Logs/DigittLogs", element: <DigittLogs /> },
-          { path: "System/Logs/SystemAudit", element: <SystemAudit /> },
-          {
-            path: "System/CommissionSlabs/VendorServices",
-            element: <VendorServices />,
-          },
-          {
-            path: "System/CommissionSlabs/VendorServices",
-            element: <VendorServices />,
-          },
-          {
-            path: "/System/CommissionSlabs/VendorCommission",
-            element: <VendorCommission />,
-          },
-          { path: "System/IncomeProof", element: <IncomeProof /> },
-          { path: "System/CommissionSlabs/Vendor", element: <Vendor /> },
-          {
-            path: "Settings/TermsPrivacyPolicy",
-            element: <TermsPrivacyPolicy />,
-          },
-          { path: "Settings/AboutMabrour", element: <AboutMubrour /> },
-          { path: "Settings/Faqs", element: <Faqs /> },
-          { path: "Campaign/CampaignList", element: <CampaignList /> },
-          { path: "Reports/PaymentReports", element: <PaymentReports /> },
-          { path: "Reports/InvoiceReports", element: <InvoiceReports/> },
-          { path: "Reports/WithdrawalReports", element: <WithdrawalReport/> },
-          { path: "Transactions/PackagesList", element: <PackagesList /> },
-          { path: "Transactions/Vendors", element: <Vendors /> },
-          { path: "Settings/CampaignSystem", element: <CampaignSystem /> },
-          { path: "*", element: <NotFound /> },
-        ],
-      },
+    ],
+  },
+  {
+    path: "/Onboarding",
+    element: <LayoutOnboarding />,
+    children: [
+      { path: "PersonalInformation", element: <PersonalInformation/> },
+      { path: "TermsConditions", element: <TermsConditions/> },
+      { path: "Verification", element: <Verification/> },
+      { path: "UploadDocument", element: <UploadDocument/> },
+      { path: "BankInfo", element: <BankInfo/> },
+      { path: "SetPassword", element: <SetPassword/> },
+      { path: "Finish", element: <Finish/> },
     ],
   },
 ]);
