@@ -75,11 +75,11 @@ const LandingDashboardPage: React.FC = () => {
           <div className="bp-overview-card-body">
             <div className="d-flex justify-content-start gap-5 bp-overview-meta-row">
               <div>
-                <div className="bp-overview-meta-label">Completed</div>
+                <div className="bp-overview-meta-label py-1">Completed</div>
                 <div className="bp-overview-value-sm">SAR 201</div>
               </div>
               <div>
-                <div className="bp-overview-meta-label">Pending</div>
+                <div className="bp-overview-meta-label py-1">Pending</div>
                 <div className="bp-overview-value-sm">SAR 0</div>
               </div>
             </div>
@@ -98,19 +98,19 @@ const LandingDashboardPage: React.FC = () => {
           <div className="bp-overview-card-body">
             <div className="bp-overview-meta-grid">
               <div>
-                <div className="bp-overview-meta-label">Cards</div>
+                <div className="bp-overview-meta-label py-1">Cards</div>
                 <div className="bp-overview-value-sm">740</div>
               </div>
               <div>
-                <div className="bp-overview-meta-label">Direct Bank</div>
+                <div className="bp-overview-meta-label py-1">Direct Bank</div>
                 <div className="bp-overview-value-sm">40</div>
               </div>
               <div>
-                <div className="bp-overview-meta-label">Wallet</div>
+                <div className="bp-overview-meta-label py-1">Wallet</div>
                 <div className="bp-overview-value-sm">30</div>
               </div>
               <div>
-                <div className="bp-overview-meta-label">I-Bill</div>
+                <div className="bp-overview-meta-label py-1">I-Bill</div>
                 <div className="bp-overview-value-sm">40</div>
               </div>
             </div>
@@ -198,8 +198,8 @@ const LandingDashboardPage: React.FC = () => {
               >
                 <div className="bp-notification-avatar">CS</div>
                 <div className="bp-notification-content">
-                  <div className="bp-notification-title">{item.title}</div>
-                  <div className="bp-notification-text">{item.text}</div>
+                  <div className="bp-notification-title py-1">{item.title}</div>
+                  <div className="bp-notification-text py-1">{item.text}</div>
                 </div>
                 <div className="bp-notification-meta">{item.time}</div>
               </div>
