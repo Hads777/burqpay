@@ -97,20 +97,6 @@ const OnboardingSidebar = () => {
           flexDirection: "column",
         }}
       >
-        {/* Vertical teal bar for active step */}
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            top: `${activeStepIndex * 72 + 24}px`,
-            width: "4px",
-            height: "48px",
-            backgroundColor: "#0B8085",
-            borderRadius: "0 2px 2px 0",
-            transition: "top 0.3s ease",
-          }}
-        />
-
         {/* Steps */}
         <div
           style={{
@@ -122,9 +108,26 @@ const OnboardingSidebar = () => {
         >
           {onboardingSteps.map((step, index) => {
             const isActive = index === activeStepIndex;
+            const isCompletedOrActive = index <= activeStepIndex;
 
             return (
               <div key={index} style={{ position: "relative" }}>
+                {/* Vertical teal bar for active step - positioned relative to each item */}
+                {isActive && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: "-24px", // Align with left edge (accounting for paddingLeft: 24px)
+                      top: "12px", // Align with icon top (padding: 12px 0)
+                      width: "4px",
+                      height: "40px", // Match icon height for perfect alignment
+                      backgroundColor: "#4AB7B5",
+                      borderRadius: "0 2px 2px 0",
+                      transition: "all 0.3s ease",
+                    }}
+                  />
+                )}
+
                 <Link
                   to={step.path}
                   style={{
@@ -146,8 +149,8 @@ const OnboardingSidebar = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      backgroundColor: isActive ? "#0B8085" : "#2A2A2A",
-                      border: isActive ? "none" : "1px solid #3A3A3A",
+                      backgroundColor: isCompletedOrActive ? "#4AB7B5" : "#2A2A2A",
+                      border: isCompletedOrActive ? "none" : "1px solid #3A3A3A",
                       transition: "all 0.3s ease",
                       flexShrink: 0,
                     }}
@@ -187,7 +190,9 @@ const OnboardingSidebar = () => {
                       top: "52px",
                       width: "2px",
                       height: "20px",
-                      backgroundColor: "#3A3A3A",
+                      backgroundColor:
+                        index < activeStepIndex ? "#4AB7B5" : "#3A3A3A",
+                      transition: "backgroundColor 0.3s ease",
                     }}
                   />
                 )}

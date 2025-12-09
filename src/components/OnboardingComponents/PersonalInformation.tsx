@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, DatePicker, Select } from "antd";
+import { Form, Input, DatePicker, Select, Button } from "antd";
 import dayjs from "dayjs";
 
 const { Option } = Select;
@@ -94,6 +94,7 @@ const PersonalInformation = () => {
                     width: "100%",
                     borderRadius: "8px",
                     height: "40px",
+                    border: "1px solid #E0E0E0",
                   }}
                 />
               </Form.Item>
@@ -224,6 +225,42 @@ const PersonalInformation = () => {
             </div>
           </div>
         </Form>
+
+        {/* Next Button */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: "32px",
+          }}
+        >
+          <Button
+            type="primary"
+            onClick={() => {
+              // Handle next button click
+              console.log("Next clicked", formData);
+            }}
+            style={{
+              backgroundColor: "#FF0000",
+              borderColor: "#FF0000",
+              borderRadius: "8px",
+              height: "40px",
+              padding: "0 32px",
+              fontSize: "14px",
+              fontWeight: 500,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#E60000";
+              e.currentTarget.style.borderColor = "#E60000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#FF0000";
+              e.currentTarget.style.borderColor = "#FF0000";
+            }}
+          >
+            Next
+          </Button>
+        </div>
       </div>
     </div>
   );
