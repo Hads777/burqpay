@@ -109,6 +109,13 @@ import UploadDocument from "../components/OnboardingComponents/UploadDocument";
 import BankInfo from "../components/OnboardingComponents/BankInfo";
 import SetPassword from "../components/OnboardingComponents/SetPassword";
 import Finish from "../components/OnboardingComponents/Finish";
+import BusinessInformation from "../components/BusinessOnboardingComponents/BusinessInformation";
+import BusinessTermsConditions from "../components/BusinessOnboardingComponents/TermsConditions";
+import OwnerInformation from "../components/BusinessOnboardingComponents/OwnerInformation";
+import PartnerInformation from "../components/BusinessOnboardingComponents/PartnerInformation";
+import BusinessBankInfo from "../components/BusinessOnboardingComponents/BankInfo";
+import BusinessSetPassword from "../components/BusinessOnboardingComponents/SetPassword";
+import BusinessFinish from "../components/BusinessOnboardingComponents/Finish";
 export const router = createBrowserRouter([
   {
     path: "/privacy-policy",
@@ -169,6 +176,19 @@ export const router = createBrowserRouter([
       { path: "BankInfo", element: <BankInfo/> },
       { path: "SetPassword", element: <SetPassword/> },
       { path: "Finish", element: <Finish/> },
+    ],
+  },
+  {
+    path: "/BusinessOnboarding",
+    element: <LayoutOnboarding />,
+    children: [
+      { path: "BusinessInformation", element: <BusinessInformation/> },
+      { path: "TermsConditions", element: <BusinessTermsConditions/> },
+      { path: "OwnerInformation", element: <OwnerInformation/> },
+      { path: "PartnerInformation", element: <PartnerInformation/> },
+      { path: "BankInfo", element: <BusinessBankInfo/> },
+      { path: "SetPassword", element: <BusinessSetPassword/> },
+      { path: "Finish", element: <BusinessFinish/> },
     ],
   },
 ]);

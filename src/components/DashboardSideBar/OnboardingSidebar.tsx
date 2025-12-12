@@ -65,8 +65,50 @@ const OnboardingSidebar = () => {
     },
   ];
 
+  const businessOnboardingSteps: OnboardingStep[] = [
+    {
+      label: "Business Information",
+      path: "/BusinessOnboarding/BusinessInformation",
+      icon: <UserOutlined />,
+    },
+    {
+      label: "Terms & Conditions",
+      path: "/BusinessOnboarding/TermsConditions",
+      icon: <FileTextOutlined />,
+    },
+    {
+      label: "Owner Information",
+      path: "/BusinessOnboarding/OwnerInformation",
+      icon: <FileTextOutlined />,
+    },
+    {
+      label: "Partner Information",
+      path: "/BusinessOnboarding/PartnerInformation",
+      icon: <UserOutlined />,
+    },
+    {
+      label: "Bank Info",
+      path: "/BusinessOnboarding/BankInfo",
+      icon: <BankOutlined />,
+    },
+    {
+      label: "Set Password",
+      path: "/BusinessOnboarding/SetPassword",
+      icon: <LockOutlined />,
+    },
+    {
+      label: "Finish",
+      path: "/BusinessOnboarding/Finish",
+      icon: <FlagOutlined />,
+    },
+  ];
+
+  // Detect which type of onboarding based on pathname
+  const isBusinessOnboarding = pathname.includes("/BusinessOnboarding");
+  const currentSteps = isBusinessOnboarding ? businessOnboardingSteps : onboardingSteps;
+
   const getActiveStepIndex = (): number => {
-    const index = onboardingSteps.findIndex((step) =>
+    const index = currentSteps.findIndex((step) =>
       pathname.includes(step.path.split("/")[2])
     );
     return index >= 0 ? index : 0;
@@ -106,7 +148,7 @@ const OnboardingSidebar = () => {
             paddingLeft: "24px",
           }}
         >
-          {onboardingSteps.map((step, index) => {
+          {currentSteps.map((step, index) => {
             const isActive = index === activeStepIndex;
             const isCompletedOrActive = index <= activeStepIndex;
 
@@ -182,7 +224,7 @@ const OnboardingSidebar = () => {
                 </Link>
 
                 {/* Connecting line */}
-                {index < onboardingSteps.length - 1 && (
+                {index < currentSteps.length - 1 && (
                   <div
                     style={{
                       position: "absolute",
