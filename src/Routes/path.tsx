@@ -159,6 +159,52 @@ export const router = createBrowserRouter([
             element: <IncomingOutgoingFund />,
           },
           { path: "Profile", element: <DashboardProfile /> },
+          
+          // Customers routes
+          { path: "Customers/AllCustomers", element: <AllCustomers /> },
+          
+          // Invoices routes
+          { path: "Invoices/AllInvoices", element: <AllInvoices /> },
+          { path: "Invoices/CreateInvoice", element: <CreateInvoice /> },
+          { path: "Invoices/InvoiceDetail/:id", element: <InvoiceDetail /> },
+          
+          // Withdrawal Management routes
+          { path: "WithdrawalManagement/ManageBanks", element: <Management /> },
+          
+          // Ledger routes
+          { path: "Ledger/LedgerList", element: <LedgerList /> },
+          
+          // Reports routes
+          { path: "Reports/PaymentReports", element: <PaymentReports /> },
+          { path: "Reports/InvoiceReports", element: <InvoiceReports /> },
+          { path: "Reports/WithdrawalReports", element: <WithdrawalReport /> },
+          
+          // E-Pos routes
+          { path: "Epos/AllEpos", element: <Epos /> },
+          
+          // Settings routes
+          { path: "Settings/PaymentGateway", element: <PaymentGateway /> },
+          { path: "Settings/CheckoutSettings", element: <CheckoutSettings /> },
+          
+          // Template Management routes
+          { path: "TemplateE-Management/AllTemplate", element: <TemplateManagement /> },
+          
+          // User Role Management routes
+          { path: "UserRoleManagement/Roles", element: <Role /> },
+          { path: "UserRoleManagement/Users", element: <Employees /> },
+          
+          // Manage Employees routes
+          { path: "ManageEmployees/AllEmployees", element: <AllEmployees /> },
+          { path: "ManageEmployees/CreateEditEmployee", element: <CreateEditEmployee /> },
+          { path: "ManageEmployees/CreateEditEmployee/:id", element: <CreateEditEmployee /> },
+          
+          // Transaction History routes
+          { path: "TransactionHistory/IBFTLedger", element: <IbftLedger /> },
+          
+          // Disbursement routes
+          { path: "Disbursement/BulkDisbursement", element: <BulkDisbursement /> },
+          { path: "Disbursement/BeneficiaryList", element: <BeneficiaryList /> },
+          { path: "Disbursement/InstantTransfer", element: <InstantTransfer /> },
  
           { path: "*", element: <NotFound /> },
         ],
